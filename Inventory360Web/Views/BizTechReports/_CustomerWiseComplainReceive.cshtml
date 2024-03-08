@@ -1,0 +1,107 @@
+﻿@using System.Globalization
+@model Inventory360Web.Models.CommonComplainReceiveAnalysisReport
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>Customer Wise Complain Receive</title>
+</head>
+<body>
+    <div style="font-size: 13px;">
+        <br />
+        <table style="width:100%; border: 1px solid black;border-collapse:collapse;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                </td>
+                <td style="width:350px;">
+                    <div class="reportTitle"><strong>@Model.ReportName Report</strong></div>
+                    <table>
+                        <tr>
+                            <td style="padding-left:5px;">@Model.DateRange</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @{
+            string Problems = "";
+            string DeliverydaysTaken = "";
+
+            var customerLists = Model.ComplainReceiveAnalysisLists.OrderBy(x => x.Customer).Select(s => s.Customer).Distinct().ToList();
+            foreach (var indCustomer in customerLists)
+            {
+                <table style="width:100%; border-collapse: collapse;">
+                    @{
+                        <tr style="font-weight:bold;">
+                            <td colspan="14" style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Customer # @indCustomer</td>
+                        </tr>
+                        <tr style="font-weight:bold; background-color:aqua;">
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Complain Number</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Invoice Number</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Product Name</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Serial</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Problem</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Received By</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Remarks</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Compilener Name</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Mobile Number</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Received Date</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Days Taken</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Delivered</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Delivery Date</td>
+                        </tr>
+                        var dataLists = Model.ComplainReceiveAnalysisLists.Where(x => x.Customer.Equals(indCustomer))
+                                                    .OrderBy(o => o.ReceiveNo)
+                                                    .ToList();
+                        foreach (var indData in dataLists)
+                        {
+                            Problems = "";
+                            DeliverydaysTaken = "";
+                            if (indData.DeliveryDate != DateTime.MinValue)
+                            {
+                                DeliverydaysTaken = ((int)(indData.DeliveryDate - indData.ReceiveDate).TotalDays).ToString();
+                            }
+                            foreach (var problem in indData.ProblemNames)
+                            {
+                                Problems = Problems == "" ? "" + problem.Name : Problems + "," + problem.Name;
+                            }
+                            <tr>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ReceiveNo</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.InvoiceNo</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ProductName</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.Serial</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@Problems</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ReceivedBy</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.Remarks</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ReceiveNo</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ReceivedByContactNo</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@if (@indData.ReceiveDate != DateTime.MinValue){@indData.ReceiveDate.ToString("dd-MMM-yyyy")}</td>
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@if (@indData.DeliveryDaysTaken != 0){ @indData.DeliveryDaysTaken}</td>
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.DeliveryStatus</td>
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@if (@indData.DeliveryDate != DateTime.MinValue){@indData.DeliveryDate.ToString("dd-MMM-yyyy")}</td>
+                            </tr>
+                        }
+                        <tr style="font-weight:bold;">
+                            <td colspan="13" style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:0px;"><span style="font-weight:bold; float: right;">Total # @dataLists.Count</span></td>
+                        </tr>
+                    }
+                </table>
+                <br />
+             }
+                <br />
+                <span style="font-weight:bold; float: right;">Grand Total  # @Model.ComplainReceiveAnalysisLists.Count</span>
+        }
+    </div>
+</body>
+</html>

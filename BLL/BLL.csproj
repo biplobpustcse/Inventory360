@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C9C59771-47A0-486F-90EF-893BD68CA407}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationState.cs" />
+    <Compile Include="Common\GenerateDifferentFullName.cs" />
+    <Compile Include="Common\GetCompanyCurrencyInfo.cs" />
+    <Compile Include="Common\GetCurrencyConversion.cs" />
+    <Compile Include="Common\FindNewIndexOfTable.cs" />
+    <Compile Include="Common\GenerateAutoVoucher.cs" />
+    <Compile Include="Common\GenerateVoucherPosting.cs" />
+    <Compile Include="Common\GenerateDifferentEventPrefix.cs" />
+    <Compile Include="Common\GetApprovedUnApprovedCancelledStatus.cs" />
+    <Compile Include="Common\GetAvailableStock.cs" />
+    <Compile Include="Common\GetCurrencyRateInfo.cs" />
+    <Compile Include="Common\GetStockConversion.cs" />
+    <Compile Include="Common\GetSupplierClosingBalance.cs" />
+    <Compile Include="Common\RandomGenerator.cs" />
+    <Compile Include="DropDown\DropDownComplainReceive.cs" />
+    <Compile Include="DropDown\DropDownConfigurationOperationType.cs" />
+    <Compile Include="DropDown\DropDownConfigurationPaymentMode.cs" />
+    <Compile Include="DropDown\DropDownCurrency.cs" />
+    <Compile Include="DropDown\DropDownReplacementClaim.cs" />
+    <Compile Include="DropDown\DropDownReplacementReceive.cs" />
+    <Compile Include="DropDown\DropDownSalesInvoice.cs" />
+    <Compile Include="DropDown\DropDownSetupBank.cs" />
+    <Compile Include="DropDown\DropDownSetupCustomer.cs" />
+    <Compile Include="DropDown\DropDownSetupEmployee.cs" />
+    <Compile Include="DropDown\DropDownSetupOperationalEvent.cs" />
+    <Compile Include="DropDown\DropDownSetupPriceType.cs" />
+    <Compile Include="DropDown\DropDownSetupProduct.cs" />
+    <Compile Include="DropDown\DropDownSetupProductDimension.cs" />
+    <Compile Include="DropDown\DropDownSetupSupplier.cs" />
+    <Compile Include="DropDown\DropDownSetupTemplateHeader.cs" />
+    <Compile Include="DropDown\DropDownSetupTransport.cs" />
+    <Compile Include="DropDown\DropDownSetupTransportType.cs" />
+    <Compile Include="DropDown\DropDownSetupUnitType.cs" />
+    <Compile Include="DropDown\Others\DropDownOthersReport.cs" />
+    <Compile Include="DropDown\Setup\DropDownSetupBrand.cs" />
+    <Compile Include="DropDown\Setup\DropDownSetupCustomerGroup.cs" />
+    <Compile Include="DropDown\Setup\DropDownSetupProductCategory.cs" />
+    <Compile Include="DropDown\Setup\DropDownSetupProductGroup.cs" />
+    <Compile Include="DropDown\Setup\DropDownSetupProductModel.cs" />
+    <Compile Include="DropDown\Setup\DropDownSetupProductSubGroup.cs" />
+    <Compile Include="DropDown\Setup\DropDownSetupSupplierGroup.cs" />
+    <Compile Include="DropDown\Task\DropDownChequeNo.cs" />
+    <Compile Include="DropDown\Task\DropDownItemRequisition.cs" />
+    <Compile Include="DropDown\Task\DropDownPurchaseOrder.cs" />
+    <Compile Include="DropDown\Task\DropDownSalesOrderNo.cs" />
+    <Compile Include="Grid\Report\GridReportChequeTreatement.cs" />
+    <Compile Include="Grid\Report\GridReportCollection.cs" />
+    <Compile Include="Grid\Report\GridReportConvertionRatio.cs" />
+    <Compile Include="Grid\Report\GridReportConvertion.cs" />
+    <Compile Include="Grid\Report\GridReportComplainReceive.cs" />
+    <Compile Include="Grid\Report\GridReportComplainReceiveAnalysisReport.cs" />
+    <Compile Include="Grid\Report\GridReportConvertion.cs" />
+    <Compile Include="Grid\Report\GridReportCustomerDelivery.cs" />
+    <Compile Include="Grid\Report\GridReportCustomerDeliveryAnalysisReport.cs" />
+    <Compile Include="Grid\Report\GridReportReplacementClaim.cs" />
+    <Compile Include="Grid\Report\GridReportReplacementReceiveAnalysis.cs" />
+    <Compile Include="Grid\Report\GridReportReplacementClaimAnalysis.cs" />
+    <Compile Include="Grid\Report\GridReportReplacementReceive.cs" />
+    <Compile Include="Grid\Report\GridReportSalesAnalysisReport.cs" />
+    <Compile Include="Grid\Report\GridReportTransferOrder.cs" />
+    <Compile Include="Grid\Report\GridReportTransferRequisition.cs" />
+    <Compile Include="Grid\Setup\GridSetupCharge.cs" />
+    <Compile Include="Grid\Setup\GridSetupCustomer.cs" />
+    <Compile Include="Grid\Setup\GridSetupConvertionRatio.cs" />
+    <Compile Include="Grid\Setup\GridSetupProblemSetup.cs" />
+    <Compile Include="Grid\Setup\GridSetupSupplier.cs" />
+    <Compile Include="Grid\Stock\GridCurrentStock.cs" />
+    <Compile Include="Grid\Task\GridTaskAdvanceSearch.cs" />
+    <Compile Include="Grid\Task\GridTaskChequeTreatement.cs" />
+    <Compile Include="Grid\Task\GridTaskCollection.cs" />
+    <Compile Include="Grid\Task\GridTaskComplainReceive.cs" />
+    <Compile Include="Grid\Task\GridTaskCustomerDelivery.cs" />
+    <Compile Include="Grid\Task\GridTaskItemRequisitionDetail.cs" />
+    <Compile Include="Grid\Task\GridTaskReplacementClaim.cs" />
+    <Compile Include="Grid\Task\GridTaskConvertion.cs" />
+    <Compile Include="Grid\Task\GridTaskReplacementReceive.cs" />
+    <Compile Include="Grid\Task\GridTaskSalesInvoice.cs" />
+    <Compile Include="Grid\Task\GridTaskTranReqFinalize.cs" />
+    <Compile Include="Grid\Task\GridTaskTranReqFinalizeDetail.cs" />
+    <Compile Include="Grid\Task\GridTaskTransferOrder.cs" />
+    <Compile Include="Grid\Task\GridTaskTransferOrderDetail.cs" />
+    <Compile Include="Insert\Setup\InsertSetupConvertionRatio.cs" />
+    <Compile Include="Insert\Setup\InsertSetupProblemSetup.cs" />
+    <Compile Include="Insert\Task\InsertTaskComplainReceive.cs" />
+    <Compile Include="Insert\Task\InsertTaskCustomerDelivery.cs" />
+    <Compile Include="Insert\Task\InsertTaskReplacementClaim.cs" />
+    <Compile Include="Insert\Task\InsertTaskConvertion.cs" />
+    <Compile Include="Insert\Task\InsertTaskReplacementReceive.cs" />
+    <Compile Include="Insert\Task\InsertTaskTransferOrder.cs" />
+    <Compile Include="Insert\Task\InsertTaskTransferRequisitionFinalize.cs" />
+    <Compile Include="Insert\Task\InsertTaskChequeTreatment.cs" />
+    <Compile Include="Insert\Task\InsertTaskCollection.cs" />
+    <Compile Include="ManagerDefault.cs" />
+    <Compile Include="ManagerSecurity.cs" />
+    <Compile Include="ManagerSetupCompany.cs" />
+    <Compile Include="ManagerSetupLocation.cs" />
+    <Compile Include="ManagerSetupProject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Update\Setup\UpdateSetupConvertionRatio.cs" />
+    <Compile Include="Update\Setup\UpdateSetupProblemSetup.cs" />
+    <Compile Include="Update\Task\UpdateTaskConvertion.cs" />
+    <Compile Include="Update\Task\UpdateTaskComplainReceive.cs" />
+    <Compile Include="Update\Task\UpdateTaskConvertion.cs" />
+    <Compile Include="Update\Task\UpdateTaskTransferOrder.cs" />
+    <Compile Include="Update\Task\UpdateTaskTransferRequisitionFinalize.cs" />
+    <Compile Include="Update\Task\UpdateTaskCollection.cs" />
+    <Compile Include="Update\UpdateDatabaseUpdate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Delete\Setup\" />
+    <Folder Include="Select\Task\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{bdac2f94-278a-458c-be6e-d55e0cf424dc}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Inventory360DataModel\Inventory360DataModel.csproj">
+      <Project>{97195a92-2fff-418e-b9c5-e0af04d7a477}</Project>
+      <Name>Inventory360DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Inventory360Entity\Inventory360Entity.csproj">
+      <Project>{0546B6FB-4BE6-4622-9CA3-F4E9F9AAAAD5}</Project>
+      <Name>Inventory360Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

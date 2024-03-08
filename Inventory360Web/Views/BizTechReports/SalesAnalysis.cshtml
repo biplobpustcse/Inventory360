@@ -1,0 +1,181 @@
+﻿@{
+    ViewBag.Title = "Sales Analysis Report...";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- page content -->
+<div id="content" ng-controller="salesAnalysisReportController">
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <form name="frmSalesAnalysisReport" class="form-horizontal form-label-left input_mask">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Sales Analysis Report</h2>
+                                <div style="float:right">
+                                    <a target="_self" class="btn btn-xs" href="@Url.Action("Index", "Home")"><i class="fa fa-close"></i> Close</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <fieldset>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Report *</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" required ng-model="reportName">
+                                                    <option ng-repeat="x in reportNameDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Location</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="locationId">
+                                                    <option ng-repeat="x in locationDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Date From</label>
+                                            <div class="col-md-3 col-sm-3 col-xs-12 xdisplay_inputx form-group has-feedback" style="margin-bottom:0px !important;">
+                                                <input class="form-control datepicker" type="text" placeholder="m/d/yyyy" name="dateFrom" ng-model="dateFrom" />
+                                            </div>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Date To</label>
+                                            <div class="col-md-3 col-sm-3 col-xs-12 xdisplay_inputx form-group has-feedback" style="margin-bottom:0px !important;">
+                                                <input class="form-control datepicker" type="text" placeholder="m/d/yyyy" name="dateTo" ng-model="dateTo" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Sales Person</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input class="form-control" name="salesPersonName" type="text" placeholder="Search sales person by name, code or mobile no." ng-model="salesPersonName" ng-keyup="getComplainReceiveNo()" />
+                                                <ul class="list-group" style="position: absolute; z-index: 999;">
+                                                    <li class="list-group-item" ng-repeat="item in salesPersonJsonData" ng-click="fillSalesPersonTextbox(item)">{{item.Item}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Sales Mode</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" name="salesMode" ng-model="salesMode">
+                                                    <option value="0">Select One...</option>
+                                                    <option value="Cash">Cash Sales</option>
+                                                    <option value="Credit">Credit Sales</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Group</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" name="customerGroupId" ng-model="customerGroupId">
+                                                    <option ng-repeat="x in customerGroupDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input class="form-control" type="text" placeholder="Search customer by name, code or mobile no." ng-model="customerName" ng-keyup="getCustomerName()" />
+                                                <ul class="list-group" style="position: absolute; z-index: 999;">
+                                                    <li class="list-group-item" ng-repeat="item in customerNameJsonData" ng-click="fillCustomerTextbox(item)">{{item.Item}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Group</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="productGroupId" ng-change="getSubGroupAndCategoryForDropdown()">
+                                                    <option ng-repeat="x in productGroupDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Sub-Group</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="productSubGroupId" ng-change="getProductModelForDropdown()">
+                                                    <option ng-repeat="x in productSubGroupDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Category</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="productCategoryId" ng-change="getProductModelForDropdown()">
+                                                    <option ng-repeat="x in productCategoryDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="brandId" ng-change="getProductModelForDropdown()">
+                                                    <option ng-repeat="x in brandDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Model</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="modelId">
+                                                    <option ng-repeat="x in modelDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Product</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input class="form-control" type="text" placeholder="Search product by name or code..." ng-model="productName" ng-keyup="getProductName()" />
+                                                <ul class="list-group" style="position: absolute; z-index: 999;">
+                                                    <li class="list-group-item" ng-repeat="item in productNameJsonData" ng-click="fillProductTextbox(item)">{{item.Item}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Currency</label>
+                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                <select class="form-control" ng-model="currencyId">
+                                                    <option ng-repeat="x in currencyDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="ln_solid"></div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button type="button" class="btn btn-app" title="Report" ng-disabled="frmSalesAnalysisReport.$invalid" ng-click="PrintReport()"><i class="fa fa-print"></i>Report</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+
+@section scripts{
+    <script src="~/Scripts/ngControllers/Inventory360Reports/sales/salesAnalysisReportController.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/locationCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/customerGroupCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/currencyCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productGroupCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productSubGroupCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productCategoryCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productModelCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productBrandCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/customerCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/employeeCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/salesAnalysisReportNameCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script>
+        $('input.datepicker').datepicker({
+            format: 'm/d/yyyy'
+        });
+    </script>
+}

@@ -1,0 +1,116 @@
+﻿@using System.Globalization
+@using Inventory360Web.Helpers
+@model Inventory360Web.Models.CommonTaskChequeTreatement
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>Status Wise Cheque Detail</title>
+</head>
+<body>
+    <div>
+        <br />
+        <table style="width:100%; border: 1px solid black;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                </td>
+                <td>
+                    <div class="reportTitle"><strong>@Model.ReportName</strong></div>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @{
+            string DateFrom = Model.DateFrom?.ToString("dd.MM.yyyy") ?? "All";
+            string DateTo = Model.DateTo?.ToString("dd.MM.yyyy") ?? "All";
+            if (!(DateFrom == "All" && DateTo == "All"))
+            {
+                if (DateFrom == "All")
+                {
+                    DateFrom = "-";
+                }
+                if (DateTo == "All")
+                {
+                    DateTo = "-";
+                }
+            }
+            foreach (var statusItem in Model.statusList)
+            {
+                <table style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;width:100%;padding-left:5px;padding-right:5px;" class="companyHeader"><div>@statusItem.StatusName</div></th>
+                        </tr>
+                    </thead>
+                </table>
+                <table style="width:100%;">
+                    <tr>
+                        <td style="width:50%;text-align:right"><div><strong>Date From: @DateFrom</strong></div></td>
+                        <td style="width:50%;text-align:left"><div><strong>To: @DateTo</strong></div></td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;text-align:right"><div><strong>Bank Compare with:</strong></div></td>
+                        <td style="width:50%;text-align:left"><div><strong>@Model.ChequeInfoList[0].BankCompareWith</strong></div></td>
+                    </tr>
+                </table>
+                <br />
+                <table class="table" style="width:100%;">
+                    <thead>
+                        @{
+                            string CustomerOrSupplier = "Supplier";
+                            string CollectionPaymentNumber = "Payment Number";
+                            string CollectionPaymentDate = "Payment Date";
+                            if (Model.ChequeType != "issuedCheque")
+                            {
+                                CustomerOrSupplier = "Customer";
+                                CollectionPaymentNumber = "Collection Number";
+                                CollectionPaymentDate = "Collection Date";
+                            }
+                            <tr>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;">S/N</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;">Cheque No</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;">Cheque Date</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;">Bank</th>
+                                <th style="text-align:right;padding-left:5px;padding-right:5px;">Amount</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;">Send Bank</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;">@CustomerOrSupplier</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;">@CollectionPaymentNumber</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;">@CollectionPaymentDate</th>
+                            </tr>
+                        }
+                    </thead>
+                    <tbody>
+                        @{int slNo = 0;
+                            foreach (var item in Model.ChequeInfoList)
+                            {
+                                if (statusItem.Status == item.Status)
+                                {
+                                    slNo = slNo + 1;
+                                    <tr>
+                                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@slNo</td>
+                                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.ChequeNo</td>
+                                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.ChequeDate.ToString("dd.MM.yyyy")</td>
+                                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.BankName</td>
+                                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">@item.Amount</td>
+                                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.SendBankName</td>
+                                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.CustomerOrSupplierName</td>
+                                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.CollectionOrPaymentNo</td>
+                                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.CollectionOrPaymentDate.ToString("dd.MM.yyyy")</td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+                <br />}
+        }
+    </div>
+</body>
+</html>

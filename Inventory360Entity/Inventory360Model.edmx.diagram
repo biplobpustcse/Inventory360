@@ -1,0 +1,1124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8806d184515e476b8fd55a2fbc3f441b" Name="Diagram1">
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_Code" Width="1.5" PointX="3" PointY="495.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_CurrencyRate" Width="1.5" PointX="10.5" PointY="428.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_EventWiseCharge" Width="1.5" PointX="13.5" PointY="422.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_Features" Width="1.5" PointX="7.5" PointY="425.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_FormattingTag" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_GovtDutyRate_HSCode" Width="1.5" PointX="13.5" PointY="415.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_GovtDutyRate_Location" Width="1.5" PointX="16.5" PointY="419.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_OperationalEvent" Width="1.5" PointX="8.25" PointY="403.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_OperationalEventDetail" Width="1.5" PointX="8.25" PointY="413.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_OperationType" Width="1.5" PointX="54.5" PointY="403.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_PaymentMode" Width="1.5" PointX="56.75" PointY="401.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_Voucher" Width="1.5" PointX="3" PointY="394.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Configuration_VoucherDetail" Width="1.5" PointX="5.25" PointY="394.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Others_Documents" Width="1.5" PointX="10.5" PointY="422.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Others_Menu" Width="1.5" PointX="5.25" PointY="401" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Others_Report" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Others_ReportDesignConfig" Width="1.5" PointX="3" PointY="427.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Security_Level" Width="1.5" PointX="3" PointY="400.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Security_Role" Width="1.5" PointX="3" PointY="406.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Security_RoleWiseMenuPermission" Width="1.5" PointX="7.5" PointY="420.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Security_User" Width="1.5" PointX="5.25" PointY="405.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Security_UserLocation" Width="1.5" PointX="10.5" PointY="415.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Security_UserWiseMenuPermission" Width="1.5" PointX="7.5" PointY="434.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Accounts" Width="1.5" PointX="16.5" PointY="430" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_AccountsCashBankIdentification" Width="1.5" PointX="21" PointY="425.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_AccountsControl" Width="1.5" PointX="15.75" PointY="426" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_AccountsDetail_Location" Width="1.5" PointX="24.75" PointY="439.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_AccountsGroup" Width="1.5" PointX="3" PointY="383.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_AccountsSubGroup" Width="1.5" PointX="7.5" PointY="409.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_AccountsSubsidiary" Width="1.5" PointX="30" PointY="425" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Bank" Width="1.5" PointX="30.75" PointY="432.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Brand" Width="1.5" PointX="7.5" PointY="438.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Capacity" Width="1.5" PointX="22.5" PointY="422.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Charge" Width="1.5" PointX="22.5" PointY="438.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Color" Width="1.5" PointX="10.5" PointY="436.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Company" Width="1.5" PointX="0.75" PointY="414.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_ConvertionRatio" Width="1.5" PointX="19.5" PointY="420.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_ConvertionRatioDetail" Width="1.5" PointX="46.5" PointY="422.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_CostingControl" Width="1.5" PointX="22.5" PointY="433.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_CostingGroup" Width="1.5" PointX="20.25" PointY="440.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_CostingHead" Width="1.5" PointX="33.75" PointY="429.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Country" Width="1.5" PointX="33.75" PointY="419.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Customer" Width="1.5" PointX="51.5" PointY="416.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_CustomerGroup" Width="1.5" PointX="13.5" PointY="432.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Designation" Width="1.5" PointX="13.5" PointY="428.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_DocumentsGroup" Width="1.5" PointX="16.5" PointY="407.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_DocumentsTitle" Width="1.5" PointX="30.75" PointY="420.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Employee" Width="1.5" PointX="39" PointY="425.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Features" Width="1.5" PointX="5.25" PointY="444.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_GeoDistrict" Width="1.5" PointX="18.5" PointY="426" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_GeoDivision" Width="1.5" PointX="19.5" PointY="436" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_GeoPoliceStation" Width="1.5" PointX="30.75" PointY="429.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_GeoRegion" Width="1.5" PointX="22.5" PointY="414.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_GovtDuty" Width="1.5" PointX="18.75" PointY="473.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_GovtDutyAdjustment" Width="1.5" PointX="18.75" PointY="470.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_HSCode" Width="1.5" PointX="11.25" PointY="402.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Location" Width="1.5" PointX="49.25" PointY="415.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Measurement" Width="1.5" PointX="10.5" PointY="431.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Port" Width="1.5" PointX="10.5" PointY="410.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Price" Width="1.5" PointX="43.5" PointY="422" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_PriceDetail" Width="1.5" PointX="45.75" PointY="418.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_PriceType" Width="1.5" PointX="19.5" PointY="430" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Problem" Width="1.5" PointX="10.5" PointY="405.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Product" Width="1.5" PointX="36" PointY="414.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_ProductCategory" Width="1.5" PointX="19.5" PointY="415.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_ProductDimension" Width="1.5" PointX="41.25" PointY="417.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_ProductGroup" Width="1.5" PointX="19.5" PointY="410.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_ProductSubGroup" Width="1.5" PointX="30.75" PointY="415.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Profession" Width="1.5" PointX="13.5" PointY="436.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Project" Width="1.5" PointX="7.5" PointY="430.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_RelatedProduct" Width="1.5" PointX="38.25" PointY="420.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Size" Width="1.5" PointX="16.5" PointY="416.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Style" Width="1.5" PointX="22.5" PointY="418.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_SubFeatures" Width="1.5" PointX="5.25" PointY="440.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Supplier" Width="1.5" PointX="51.5" PointY="401.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_SupplierGroup" Width="1.5" PointX="10.5" PointY="418.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_TemplateHeader" Width="1.5" PointX="22.5" PointY="430.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_TermsAndConditions" Width="1.5" PointX="33.75" PointY="422.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_Transport" Width="1.5" PointX="13.5" PointY="410.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_TransportType" Width="1.5" PointX="22.5" PointY="409.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Setup_UnitType" Width="1.5" PointX="25.5" PointY="415.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Stock_BadStock" Width="1.5" PointX="84.25" PointY="419.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Stock_BadStockSerial" Width="1.5" PointX="86.5" PointY="427.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Stock_CurrentStock" Width="1.5" PointX="90.25" PointY="419.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Stock_CurrentStockSerial" Width="1.5" PointX="92.5" PointY="421.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Stock_LIMStock" Width="1.5" PointX="69.75" PointY="403.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Stock_RMAStock" Width="1.5" PointX="84.25" PointY="426.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Stock_RMAStockSerial" Width="1.5" PointX="86.5" PointY="430.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Stock_TransitStock" Width="1.5" PointX="87.25" PointY="419.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Stock_TransitStockSerial" Width="1.5" PointX="89.5" PointY="427.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ChequeInfo" Width="1.5" PointX="87" PointY="433.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ChequeTreatment" Width="1.5" PointX="98.25" PointY="423.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_Collection" Width="1.5" PointX="58.75" PointY="429.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_Collection_GovtDutyAdjustment" Width="1.5" PointX="61" PointY="449.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_CollectionDetail" Width="1.5" PointX="66.75" PointY="439.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_CollectionMapping" Width="1.5" PointX="76" PointY="431.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_CollectionNos" Width="1.5" PointX="3" PointY="471.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ComplainReceive" Width="1.5" PointX="58.75" PointY="421" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ComplainReceive_Charge" Width="1.5" PointX="27.75" PointY="415.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ComplainReceiveDetail" Width="1.5" PointX="70" PointY="428.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ComplainReceiveDetail_Problem" Width="1.5" PointX="84.25" PointY="407.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ComplainReceiveDetail_SpareProduct" Width="1.5" PointX="84.25" PointY="438.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ComplainReceiveNos" Width="1.5" PointX="3" PointY="403.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_Convertion" Width="1.5" PointX="56.5" PointY="437" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ConvertionDetail" Width="1.5" PointX="84.25" PointY="411.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ConvertionDetailSerial" Width="1.5" PointX="86.5" PointY="413.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ConvertionNos" Width="1.5" PointX="3" PointY="493" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_CustomerDelivery" Width="1.5" PointX="53.75" PointY="407.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_CustomerDelivery_Charge" Width="1.5" PointX="27.75" PointY="427.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_CustomerDeliveryDetail" Width="1.5" PointX="73" PointY="410.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_CustomerDeliveryDetail_Problem" Width="1.5" PointX="83.25" PointY="404.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_CustomerDeliveryDetail_SpareProduct" Width="1.5" PointX="87.25" PointY="407.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_CustomerDeliveryDetail_SpareSerial" Width="1.5" PointX="89.5" PointY="396.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_CustomerDeliveryNos" Width="1.5" PointX="3" PointY="484.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_DeliveryChallan" Width="1.5" PointX="56" PointY="419.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_DeliveryChallan_Charge" Width="1.5" PointX="27.75" PointY="431.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_DeliveryChallanDetail" Width="1.5" PointX="61.25" PointY="397.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_DeliveryChallanDetail_GovtDuty" Width="1.5" PointX="72.5" PointY="443.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_DeliveryChallanDetailSerial" Width="1.5" PointX="63.5" PointY="402" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_DeliveryChallanNos" Width="1.5" PointX="3" PointY="392" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_GoodsReceive" Width="1.5" PointX="82" PointY="414.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_GoodsReceiveDetail" Width="1.5" PointX="95.25" PointY="433.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_GoodsReceiveDetailSerial" Width="1.5" PointX="97.5" PointY="436.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_GoodsReceiveNos" Width="1.5" PointX="3" PointY="386.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ImportCosting" Width="1.5" PointX="92.25" PointY="427" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ImportCostingDetail" Width="1.5" PointX="97.5" PointY="431.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ImportCostingNos" Width="1.5" PointX="3" PointY="487.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ImportCostingProduct" Width="1.5" PointX="97.5" PointY="418.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ImportDocuments" Width="1.5" PointX="12.75" PointY="406.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ImportedStockIn" Width="1.5" PointX="100.25" PointY="413.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ImportedStockInDetail" Width="1.5" PointX="102.5" PointY="421.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ImportedStockInDetailSerial" Width="1.5" PointX="104.75" PointY="423" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ImportedStockInNos" Width="1.5" PointX="3" PointY="454.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ItemRequisition" Width="1.5" PointX="59.5" PointY="410.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ItemRequisitionDetail" Width="1.5" PointX="75.75" PointY="404" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ItemRequisitionNos" Width="1.5" PointX="3" PointY="479.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_LCOpening" Width="1.5" PointX="79" PointY="409.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_LCOpeningNos" Width="1.5" PointX="3" PointY="398" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_LIMStockIn" Width="1.5" PointX="86" PointY="400.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_LIMStockInDetail" Width="1.5" PointX="95.25" PointY="404.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_LIMStockInNos" Width="1.5" PointX="3" PointY="504.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PartyAdjustment" Width="1.5" PointX="70.75" PointY="421" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PartyAdjustmentDetail" Width="1.5" PointX="58.75" PointY="416.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PartyAdjustmentNos" Width="1.5" PointX="3" PointY="499" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_Payment" Width="1.5" PointX="81.75" PointY="427.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_Payment_GovtDutyAdjustment" Width="1.5" PointX="84" PointY="449" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PaymentDetail" Width="1.5" PointX="87" PointY="440.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PaymentMapping" Width="1.5" PointX="95.25" PointY="421.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PaymentNos" Width="1.5" PointX="3" PointY="501.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PostedVoucher" Width="1.5" PointX="56.5" PointY="430.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ProformaInvoice" Width="1.5" PointX="66.75" PointY="399.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ProformaInvoiceDetail" Width="1.5" PointX="89" PointY="399.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ProformaInvoiceNos" Width="1.5" PointX="3" PointY="473.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PurchaseOrder" Width="1.5" PointX="72.75" PointY="398" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PurchaseOrderDetail" Width="1.5" PointX="90" PointY="430.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PurchaseOrderNos" Width="1.5" PointX="3" PointY="465.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PurchaseReturn" Width="1.5" PointX="78.75" PointY="429.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PurchaseReturnDetail" Width="1.5" PointX="92.25" PointY="432.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PurchaseReturnDetailSerial" Width="1.5" PointX="94.5" PointY="442.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_PurchaseReturnNos" Width="1.5" PointX="3" PointY="482.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReceiveFinalize" Width="1.5" PointX="75.75" PointY="435.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReceiveFinalizeDetail" Width="1.5" PointX="89.25" PointY="437.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReceiveFinalizeDetailSerial" Width="1.5" PointX="91.5" PointY="443" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReceiveFinalizeNos" Width="1.5" PointX="3" PointY="389.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReplacementClaim" Width="1.5" PointX="81.75" PointY="407.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReplacementClaimDetail" Width="1.5" PointX="70" PointY="409.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReplacementClaimDetail_Problem" Width="1.5" PointX="81.25" PointY="400.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReplacementClaimNos" Width="1.5" PointX="3" PointY="460.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReplacementReceive" Width="1.5" PointX="73.75" PointY="421" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReplacementReceive_Charge" Width="1.5" PointX="24.75" PointY="411.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReplacementReceiveDetail" Width="1.5" PointX="93" PointY="413.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_ReplacementReceiveNos" Width="1.5" PointX="3" PointY="457.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_RequisitionFinalize" Width="1.5" PointX="67.5" PointY="433" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_RequisitionFinalizeDetail" Width="1.5" PointX="84.75" PointY="433.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_RequisitionFinalizeNos" Width="1.5" PointX="3" PointY="452" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesInvoice" Width="1.5" PointX="64.75" PointY="416.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesInvoice_Charge" Width="1.5" PointX="27.75" PointY="423.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesInvoiceDetail" Width="1.5" PointX="90.25" PointY="405.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesInvoiceDetail_GovtDuty" Width="1.5" PointX="97.5" PointY="440.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesInvoiceDetailSerial" Width="1.5" PointX="92.5" PointY="410.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesInvoiceNos" Width="1.5" PointX="3" PointY="468.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesOrder" Width="1.5" PointX="53.75" PointY="416.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesOrder_Charge" Width="1.5" PointX="27.75" PointY="419.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesOrderDeliveryInfo" Width="1.5" PointX="64" PointY="405.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesOrderDetail" Width="1.5" PointX="73" PointY="429" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesOrderDetail_GovtDuty" Width="1.5" PointX="75.25" PointY="450.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesOrderNos" Width="1.5" PointX="3" PointY="490.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesQuotation" Width="1.5" PointX="61.75" PointY="418.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesQuotation_Charge" Width="1.5" PointX="24.75" PointY="435.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesQuotation_DeliveryInfo" Width="1.5" PointX="76" PointY="408.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesQuotation_GovtDutyAdjustment" Width="1.5" PointX="67" PointY="444.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesQuotation_Header" Width="1.5" PointX="64" PointY="444.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesQuotation_SecurityAndBanking" Width="1.5" PointX="70" PointY="437.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesQuotationDetail" Width="1.5" PointX="76" PointY="424.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesQuotationDetail_GovtDuty" Width="1.5" PointX="78.25" PointY="448.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesQuotationNos" Width="1.5" PointX="3" PointY="463" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesReturn" Width="1.5" PointX="61.75" PointY="410.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesReturnDetail" Width="1.5" PointX="76" PointY="413.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesReturnDetailSerial" Width="1.5" PointX="78.25" PointY="400.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_SalesReturnNos" Width="1.5" PointX="3" PointY="446.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_StockAdjustment" Width="1.5" PointX="64.5" PointY="409.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_StockAdjustmentDetail" Width="1.5" PointX="78.75" PointY="403.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_StockAdjustmentDetailSerial" Width="1.5" PointX="81" PointY="404.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_StockAdjustmentNos" Width="1.5" PointX="3" PointY="476.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferChallan" Width="1.5" PointX="61.5" PointY="436.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferChallanDetail" Width="1.5" PointX="95.25" PointY="411.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferChallanDetailSerial" Width="1.5" PointX="97.5" PointY="414.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferChallanNos" Width="1.5" PointX="3" PointY="434.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferOrder" Width="1.5" PointX="67.5" PointY="409.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferOrderDetail" Width="1.5" PointX="78.75" PointY="437.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferOrderNos" Width="1.5" PointX="3" PointY="449.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferReceive" Width="1.5" PointX="81.75" PointY="439.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferReceiveDetail" Width="1.5" PointX="95.25" PointY="425.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferReceiveDetailSerial" Width="1.5" PointX="97.5" PointY="428" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferReceiveNos" Width="1.5" PointX="3" PointY="409.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferRequisitionFinalize" Width="1.5" PointX="51.5" PointY="433.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferRequisitionFinalizeDetail" Width="1.5" PointX="72.75" PointY="439.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_TransferRequisitionFinalizeNos" Width="1.5" PointX="3" PointY="418.625" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_Voucher" Width="1.5" PointX="64.5" PointY="433.75" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_VoucherDetail" Width="1.5" PointX="69.75" PointY="444.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Task_VoucherNos" Width="1.5" PointX="3" PointY="380.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_AccountsLedgerDetail" Width="1.5" PointX="18.75" PointY="407.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_AccountsLedgerOrProvisionalLedger" Width="1.5" PointX="16.5" PointY="411.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_ChequeInfo" Width="1.5" PointX="75.25" PointY="400.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_Collection" Width="1.5" PointX="56.75" PointY="407" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_CollectionDetail" Width="1.5" PointX="59" PointY="407.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_CollectionMapping" Width="1.5" PointX="70" PointY="417.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_CustomerSupplierOutstanding" Width="1.5" PointX="53.75" PointY="433.125" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_PartyLedger" Width="1.5" PointX="61.75" PointY="431.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_SalesInvoice" Width="1.5" PointX="67.75" PointY="417" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_SalesInvoice_Charge" Width="1.5" PointX="27.75" PointY="411.25" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_SalesInvoiceDetail" Width="1.5" PointX="79" PointY="420.375" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_SalesInvoiceDetail_GovtDuty" Width="1.5" PointX="81.25" PointY="449.5" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_SalesInvoiceDetailSerial" Width="1.5" PointX="81.25" PointY="445.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.Temp_TrialBalance" Width="1.5" PointX="27.75" PointY="434.875" />
+        <EntityTypeShape EntityType="BTS_OPSModel.TempCustomerOrSupplierWiseChequePerformance" Width="1.5" PointX="0.75" PointY="3.75" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_Code_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_CurrencyRate_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_CurrencyRate_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_ChargeEvent_Setup_Charge" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_ChargeEvent_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_EventWiseCharge_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_EventWiseCharge_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceive_Charge_Configuration_EventWiseCharge" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDelivery_Charge_Configuration_EventWiseCharge" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Charge_Configuration_EventWiseCharge" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceive_Charge_Configuration_EventWiseCharge" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Charge_Configuration_EventWiseCharge" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Charge_Configuration_EventWiseCharge" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Charge_Configuration_EventWiseCharge" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Charge_Configuration_EventWiseCharge" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_Features_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_Features_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_Features_Setup_Features" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_Features_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_Features_Setup_SubFeatures" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_GovtDutyRate_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_GovtDutyRate_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_GovtDutyRate_Setup_GovtDuty" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_GovtDutyRate_Setup_HSCode" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_GovtDutyRate_Location_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_GovtDutyRate_Location_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_GovtDutyRate_Location_Setup_GovtDuty" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_GovtDutyRate_Location_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_OperationalEventDetail_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Others_Documents_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Others_ReportDesignConfig_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Problem_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_TermsAndConditions_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PostedVoucher_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Voucher_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_Collection_Configuration_OperationalEvent" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_OperationalEventDetail_Configuration_OperationType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_OperationalEventDetail_Configuration_PaymentMode" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_OperationalEventDetail_Configuration_PaymentMode1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_OperationalEventDetail_Configuration_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_OperationalEventDetail_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_OperationalEventDetail_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_OperationalEventDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_OperationalEventDetail_Setup_PriceType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Configuration_OperationType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PartyAdjustment_Configuration_OperationType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_Configuration_OperationType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoice_Configuration_OperationType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Configuration_OperationType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_Collection_Configuration_OperationType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CollectionDetail_Configuration_PaymentMode" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PaymentDetail_Configuration_PaymentMode" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrder_Configuration_PaymentMode" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Configuration_PaymentMode" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Configuration_PaymentMode" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_CollectionDetail_Configuration_PaymentMode" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_Voucher_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_VoucherDetail_Configuration_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Configuration_VoucherDetail_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Others_Documents_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Others_Documents_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Others_Documents_Setup_DocumentsTitle" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportDocuments_Others_Documents" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_RoleWiseMenuPermission_Others_Menu" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_UserWiseMenuPermission_Others_Menu" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Others_ReportDesignConfig_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_Level_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_RoleWiseMenuPermission_Security_Level" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_User_Security_Level" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_Role_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_RoleWiseMenuPermission_Security_Role" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_User_Security_Role" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_RoleWiseMenuPermission_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_RoleWiseMenuPermission_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_User_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_UserLocation_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_UserWiseMenuPermission_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_UserWiseMenuPermission_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Accounts_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Accounts_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Accounts_Security_User2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsCashBankIdentification_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsControl_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsSubGroup_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsSubsidiary_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Bank_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Bank_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Brand_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Brand_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Capacity_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Charge_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Color_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ConvertionRatio_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ConvertionRatio_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CostingControl_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CostingControl_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CostingHead_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CostingHead_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Customer_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Customer_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CustomerGroup_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Designation_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_DocumentsGroup_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_DocumentsGroup_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_DocumentsTitle_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_DocumentsTitle_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Employee_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoDistrict_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoDivision_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoPoliceStation_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoRegion_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Location_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Measurement_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Port_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Port_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Price_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_PriceDetail_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_PriceType_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Problem_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Problem_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductCategory_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductCategory_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductDimension_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductGroup_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductGroup_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductSubGroup_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductSubGroup_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Profession_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Project_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_RelatedProduct_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Size_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Style_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Supplier_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Supplier_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_SupplierGroup_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_TemplateHeader_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_TermsAndConditions_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Transport_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_TransportType_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_UnitType_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeInfo_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeTreatment_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Security_User2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Security_User3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceive_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceive_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Convertion_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Convertion_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDelivery_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDelivery_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Security_User2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceive_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceive_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceive_Security_User2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCosting_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCosting_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportDocuments_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockIn_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockIn_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ItemRequisition_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ItemRequisition_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LCOpening_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LCOpening_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockIn_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockIn_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PartyAdjustment_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PartyAdjustment_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_Security_User2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_Security_User3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PostedVoucher_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoice_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoice_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrder_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrder_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturn_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturn_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalize_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalize_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaim_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaim_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceive_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceive_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalize_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalize_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Security_User2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Security_User2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturn_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturn_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustment_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustment_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallan_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallan_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrder_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrder_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceive_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceive_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalize_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalize_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Voucher_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Voucher_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Voucher_Security_User2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Voucher_Security_User3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_AccountsLedgerOrProvisionalLedger_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_Collection_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_Collection_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_Collection_Security_User2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_CustomerSupplierOutstanding_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_PartyLedger_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Security_User1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_TrialBalance_Security_User" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_UserLocation_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Security_UserWiseMenuPermission_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Accounts_Setup_AccountsSubsidiary" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Accounts_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Accounts_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsDetail_Location_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Bank_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CostingHead_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Customer_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Employee_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GovtDuty_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GovtDutyAdjustment_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Supplier_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PostedVoucher_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_VoucherDetail_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_TrialBalance_Setup_Accounts" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsCashBankIdentification_Setup_AccountsControl" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsCashBankIdentification_Setup_AccountsSubsidiary" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsCashBankIdentification_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsControl_Setup_AccountsSubGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsControl_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsSubsidiary_Setup_AccountsControl" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsDetail_Location_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsGroup_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsSubGroup_Setup_AccountsGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsSubGroup_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_AccountsSubsidiary_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Bank_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Employee_Setup_Bank" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Supplier_Setup_Bank" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeInfo_Setup_Bank" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeTreatment_Setup_Bank" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LCOpening_Setup_Bank" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LCOpening_Setup_Bank1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_SecurityAndBanking_Setup_Bank" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_ChequeInfo_Setup_Bank" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Brand_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_Brand" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Capacity_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_Capacity" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Charge_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Color_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductDimension_Setup_Color" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ConvertionRatio_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CostingControl_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CostingHead_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Customer_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CustomerGroup_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Designation_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_DocumentsGroup_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_DocumentsTitle_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Employee_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoDistrict_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoDivision_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoPoliceStation_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoRegion_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Location_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Measurement_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Port_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Price_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_PriceType_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Problem_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductCategory_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductGroup_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductSubGroup_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Profession_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Project_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Size_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Style_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Supplier_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_SupplierGroup_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_TemplateHeader_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_TermsAndConditions_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Transport_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_TransportType_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_UnitType_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_BadStock_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_CurrentStock_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_LIMStock_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_RMAStock_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_TransitStock_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeInfo_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CollectionNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceive_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Convertion_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDelivery_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceive_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceiveNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCosting_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCostingNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockIn_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockInNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ItemRequisition_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ItemRequisitionNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LCOpening_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LCOpeningNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockIn_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockInNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PartyAdjustment_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PartyAdjustmentNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PaymentNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PostedVoucher_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoice_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoiceNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrder_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrderNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturn_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalize_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalizeNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaim_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaimNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceive_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceiveNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalize_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalizeNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturn_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustment_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustmentNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallan_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrder_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrderNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceive_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalize_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalizeNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Voucher_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_VoucherNos_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_AccountsLedgerOrProvisionalLedger_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_Collection_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_CustomerSupplierOutstanding_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_PartyLedger_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_TrialBalance_Setup_Company" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ConvertionRatioDetail_Setup_ConvertionRatio" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Convertion_Setup_ConvertionRatio" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ConvertionRatioDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ConvertionRatioDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ConvertionRatioDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CostingControl_Setup_CostingGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_CostingHead_Setup_CostingControl" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportDocuments_Setup_CostingGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCostingDetail_Setup_CostingHead" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_Country" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Customer_Setup_CustomerGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Customer_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Customer_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Customer_Setup_Profession" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Customer_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceive_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDelivery_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Setup_Customer1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PartyAdjustmentDetail_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Setup_Customer1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Setup_Customer1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Setup_Customer1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturn_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_Collection_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_CustomerSupplierOutstanding_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_PartyLedger_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Setup_Customer" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Setup_Customer1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Employee_Setup_Designation" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_DocumentsTitle_Setup_DocumentsGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Location_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceive_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDelivery_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ItemRequisition_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaim_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceive_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalize_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationDetail_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustment_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrder_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceive_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalize_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_Collection_Setup_Employee" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_SubFeatures_Setup_Features" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoDistrict_Setup_GeoDivision" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoPoliceStation_Setup_GeoDistrict" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_GeoDivision_Setup_GeoRegion" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_GovtDuty_Setup_GovtDuty" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_GovtDuty_Setup_GovtDuty" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDetail_GovtDuty_Setup_GovtDuty" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationDetail_GovtDuty_Setup_GovtDuty" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoiceDetail_GovtDuty_Setup_GovtDuty" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_GovtDutyAdjustment_Setup_GovtDutyAdjustment" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_GovtDutyAdjustment_Setup_GovtDutyAdjustment" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_GovtDutyAdjustment_Setup_GovtDutyAdjustment" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_HSCode" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Location_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Supplier_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_BadStock_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_BadStock_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_CurrentStock_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_CurrentStock_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_LIMStock_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_RMAStock_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_RMAStock_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_TransitStock_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_TransitStock_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeInfo_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceive_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Convertion_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDelivery_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Setup_Location2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceive_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceiveDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCosting_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockIn_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockIn_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockInDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ItemRequisition_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LCOpening_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockIn_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PartyAdjustment_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PostedVoucher_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoice_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrder_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturn_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalize_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaim_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceive_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalize_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Setup_Location2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturn_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustment_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustmentDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallan_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallan_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrder_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrder_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrder_Setup_Location2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceive_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalize_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalize_Setup_Location1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Voucher_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_Collection_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoiceDetail_Setup_Location" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductDimension_Setup_Measurement" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoice_Setup_Port" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoice_Setup_Port1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Price_Setup_PriceType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Price_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Price_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Price_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_PriceDetail_Setup_Price" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_Problem_Setup_Problem" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_Problem_Setup_Problem" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaimDetail_Problem_Setup_Problem" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_ProductCategory" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_ProductGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_ProductSubGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Product_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductDimension_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_RelatedProduct_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_RelatedProduct_Setup_Product1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_BadStock_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_CurrentStock_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_LIMStock_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_RMAStock_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_TransitStock_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_SpareProduct_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_Setup_Product1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_SpareProduct_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceiveDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCostingProduct_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockInDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ItemRequisitionDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockInDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoiceDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrderDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalizeDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaimDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceiveDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceiveDetail_Setup_Product1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalizeDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustmentDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrderDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalizeDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoiceDetail_Setup_Product" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductCategory_Setup_ProductGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductDimension_Setup_Size" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductDimension_Setup_Style" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_BadStock_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_CurrentStock_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_LIMStock_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_RMAStock_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_TransitStock_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_SpareProduct_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_Setup_ProductDimension1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_SpareProduct_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceiveDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCostingProduct_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockInDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ItemRequisitionDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockInDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoiceDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrderDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalizeDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaimDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceiveDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceiveDetail_Setup_ProductDimension1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalizeDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustmentDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrderDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalizeDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoiceDetail_Setup_ProductDimension" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_ProductSubGroup_Setup_ProductGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Supplier_Setup_Profession" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PostedVoucher_Setup_Project" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_VoucherDetail_Setup_Project" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_Supplier_Setup_SupplierGroup" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_BadStock_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_CurrentStock_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_LIMStock_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_RMAStock_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_TransitStock_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceive_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LCOpening_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LCOpening_Setup_Supplier1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PartyAdjustmentDetail_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoice_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrder_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturn_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalize_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaim_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_CustomerSupplierOutstanding_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_PartyLedger_Setup_Supplier" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Setup_TermsAndConditions_Setup_TemplateHeader" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoice_Setup_TermsAndConditions" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrder_Setup_TermsAndConditions" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrder_Setup_TermsAndConditions1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalize_Setup_TermsAndConditions" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalize_Setup_TermsAndConditions1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Setup_TermsAndConditions" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Setup_TermsAndConditions" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Setup_TermsAndConditions1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Setup_TermsAndConditions" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Setup_TermsAndConditions1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Setup_TermsAndConditions" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Setup_Transport" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDeliveryInfo_Setup_Transport" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationDeliveryInfo_Setup_Transport" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallan_Setup_Transport" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Setup_Transport" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Setup_TransportType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Setup_TransportType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDeliveryInfo_Setup_TransportType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationDeliveryInfo_Setup_TransportType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallan_Setup_TransportType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Setup_TransportType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_BadStock_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_CurrentStock_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_LIMStock_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_RMAStock_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_TransitStock_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_SpareProduct_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_SpareProduct_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceiveDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceiveDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceiveDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceiveDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCostingProduct_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCostingProduct_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockInDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockInDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockInDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockInDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ItemRequisitionDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockInDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockInDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockInDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockInDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoiceDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoiceDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrderDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrderDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrderDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrderDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalizeDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalizeDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalizeDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalizeDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaimDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceiveDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceiveDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalizeDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustmentDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustmentDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustmentDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustmentDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrderDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Setup_UnitType1" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Setup_UnitType2" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Setup_UnitType3" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalizeDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoiceDetail_Setup_UnitType" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_BadStock_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_BadStock_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_BadStockSerial_Stock_BadStock" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_CurrentStock_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_CurrentStock_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_CurrentStockSerial_Stock_CurrentStock" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_RMAStock_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_RMAStock_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_RMAStockSerial_Stock_RMAStock" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_TransitStock_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_TransitStock_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Stock_TransitStockSerial_Stock_TransitStock" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeInfo_Task_CollectionDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeInfo_Task_PaymentDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeInfo_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeTreatment_Task_ChequeInfo" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ChequeTreatment_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_GovtDutyAdjustment_Task_Collection" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Collection_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CollectionDetail_Task_Collection" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CollectionMapping_Task_Collection" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CollectionDetail_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CollectionMapping_Task_SalesInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CollectionMapping_Task_SalesOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceive_Charge_Task_ComplainReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_Task_ComplainReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_Task_ComplainReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaimDetail_Task_ComplainReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_Problem_Task_ComplainReceiveDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_SpareProduct_Task_ComplainReceiveDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ComplainReceiveDetail_Task_SalesInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Task_Convertion" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetail_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ConvertionDetailSerial_Task_ConvertionDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDelivery_Charge_Task_CustomerDelivery" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDelivery_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_Task_CustomerDelivery" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_Problem_Task_CustomerDeliveryDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_SpareProduct_Task_CustomerDeliveryDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_CustomerDeliveryDetail_SpareSerial_Task_CustomerDeliveryDetail_SpareProduct" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Charge_Task_DeliveryChallan" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallan_Task_SalesOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Task_DeliveryChallan" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Task_DeliveryChallan" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_GovtDuty_Task_DeliveryChallanDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetail_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_DeliveryChallanDetailSerial_Task_DeliveryChallanDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Task_DeliveryChallanDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceive_Task_PurchaseOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceive_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceiveDetail_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PaymentMapping_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnDetail_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalizeDetail_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Task_GoodsReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_GoodsReceiveDetailSerial_Task_GoodsReceiveDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCosting_Task_LCOpening" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCostingDetail_Task_ImportCosting" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportCostingProduct_Task_ImportCosting" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportDocuments_Task_LCOpening" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockIn_Task_LIMStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockInDetail_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Task_ImportedStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ImportedStockInDetailSerial_Task_ImportedStockInDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ItemRequisitionDetail_Task_ItemRequisition" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalizeDetail_Task_ItemRequisition" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalizeDetail_Task_ItemRequisition" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LCOpening_Task_ProformaInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockIn_Task_ProformaInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_LIMStockInDetail_Task_LIMStockIn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PartyAdjustment_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PartyAdjustmentDetail_Task_PartyAdjustment" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_GovtDutyAdjustment_Task_Payment" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_Payment_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PaymentDetail_Task_Payment" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PaymentMapping_Task_Payment" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PaymentDetail_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PaymentMapping_Task_PurchaseOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PaymentMapping_Task_ReceiveFinalize" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PostedVoucher_Task_VoucherDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoiceDetail_Task_ProformaInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ProformaInvoiceDetail_Task_PurchaseOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrderDetail_Task_PurchaseOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseOrderDetail_Task_RequisitionFinalize" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturn_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnDetail_Task_PurchaseReturn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_PurchaseReturnDetailSerial_Task_PurchaseReturnDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalize_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalizeDetail_Task_ReceiveFinalize" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReceiveFinalizeDetailSerial_Task_ReceiveFinalizeDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaim_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaimDetail_Task_ReplacementClaim" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceiveDetail_Task_ReplacementClaim" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementClaimDetail_Problem_Task_ReplacementClaimDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceive_Charge_Task_ReplacementReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceive_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_ReplacementReceiveDetail_Task_ReplacementReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_RequisitionFinalizeDetail_Task_RequisitionFinalize" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Charge_Task_SalesInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoice_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_Task_SalesInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Task_SalesInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetail_GovtDuty_Task_SalesInvoiceDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesInvoiceDetailSerial_Task_SalesInvoiceDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrder_Charge_Task_SalesOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDeliveryInfo_Task_SalesOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDetail_Task_SalesOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesOrderDetail_GovtDuty_Task_SalesOrderDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Charge_Task_SalesQuotation" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_GovtDutyAdjustment_Task_SalesQuotation" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_Header_Task_SalesQuotation" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotation_SecurityAndBanking_Task_SalesQuotation" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationDeliveryInfo_Task_SalesQuotation" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationDetail_Task_SalesQuotation" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesQuotationDetail_GovtDuty_Task_SalesQuotationDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturn_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetail_Task_SalesReturn" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_SalesReturnDetailSerial_Task_SalesReturnDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustmentDetail_Task_StockAdjustment" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_StockAdjustmentDetailSerial_Task_StockAdjustmentDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Task_TransferChallan" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceive_Task_TransferChallan" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetail_Task_TransferOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferChallanDetailSerial_Task_TransferChallanDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrderDetail_Task_TransferOrder" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferOrderDetail_Task_TransferRequisitionFinalize" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetail_Task_TransferReceive" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferReceiveDetailSerial_Task_TransferReceiveDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_TransferRequisitionFinalizeDetail_Task_TransferRequisitionFinalize" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Task_VoucherDetail_Task_Voucher" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_AccountsLedgerDetail_Temp_AccountsLedgerOrProvisionalLedger" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_ChequeInfo_Temp_CollectionDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_CollectionDetail_Temp_Collection" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_CollectionMapping_Temp_Collection" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_CollectionMapping_Temp_SalesInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoice_Charge_Temp_SalesInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoiceDetail_Temp_SalesInvoice" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoiceDetail_GovtDuty_Temp_SalesInvoiceDetail" />
+        <AssociationConnector Association="BTS_OPSModel.FK_Temp_SalesInvoiceDetailSerial_Temp_SalesInvoiceDetail" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

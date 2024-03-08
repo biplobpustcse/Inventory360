@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Approve Collection...";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- page content -->
+<div id="content" ng-controller="collectionApproveController">
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Approve Collection</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <form class="form-horizontal form-label-left input_mask">
+                                <div class="form-group">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="form-inline" style="margin-bottom: 10px;">
+                                            <label class="control-label">Currency&nbsp;</label>
+                                            <select class="form-control" ng-model="currencyId" ng-change="loadCollectionNoByCurrency()">
+                                                <option ng-repeat="x in currencyDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input class="form-control" style="width:100%;" type="text" placeholder="Search by collection no, customer code, name or contact no..." maxlength="100" name="searchCollectionNo" ng-model="searchCollectionNo" ng-change="filterCollectionNo()" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-7 col-sm-12 col-xs-12">
+                                    <div role="status" aria-live="polite">{{showRecordsInfo}}</div>
+                                </div>
+                                <div class="form-group col-md-5 col-sm-12 col-xs-12" ng-show="showGrid" style="margin-bottom: 0px !important;">
+                                    <div class="dataTables_paginate paging_simple_numbers">
+                                        <ul class="pagination">
+                                            <li class="paginate_button previous" ng-class="pageIndex > 1 ? 'active' : 'disabled'">
+                                                <a href="#" aria-controls="datatable" ng-click="previous($event)"><i class="fa fa-arrow-circle-left"></i> Previous</a>
+                                            </li>
+                                            <li class="paginate_button next" ng-class="pageIndex < unApprovedCollectionJsonLists.LastPageNo ? 'active' : 'disabled'">
+                                                <a href="#" aria-controls="datatable" ng-click="next($event)">Next <i class="fa fa-arrow-circle-right"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="row" ng-show="showGrid">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Collection No.</th>
+                                                        <th>Code</th>
+                                                        <th>Customer / Buyer</th>
+                                                        <th>Contact No.</th>
+                                                        <th><span class="pull-right">Amount</span></th>
+                                                        <th style="width: 60px;">&nbsp;</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in unApprovedCollectionJsonLists.Data">
+                                                        <td>{{item.CollectionDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.CollectionNo}}</td>
+                                                        <td>{{item.CustomerCode}}</td>
+                                                        <td>{{item.CustomerName}}</td>
+                                                        <td>{{item.ContactNo}}</td>
+                                                        <td><span class="pull-right">{{item.CollectedAmount.toFixed(2)}}</span></td>
+                                                        <td>
+                                                            <div class="pull-right">
+                                                                <button ng-click="approveCollection(item.CollectionId, item.CollectionNo)" class="btn btn-warning btn-xs" style="margin-bottom: 0px;margin-right:0px;" title="Approve Collection">
+                                                                    <span class="fa fa-check-circle"></span>
+                                                                </button>
+                                                                <button ng-click="PrintReport(item.CollectionId)" class="btn btn-info btn-xs" style="margin-bottom: 0px;" title="Collection Report">
+                                                                    <span class="fa fa-print"></span>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+
+@section scripts{
+    <script src="~/Scripts/ngControllers/approve/sales/collectionApproveController.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/currencyCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/task/sales/collection/unApprovedCollectionService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/task/sales/collection/collectionApproveService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+}

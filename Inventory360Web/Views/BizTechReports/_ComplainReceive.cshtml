@@ -1,0 +1,216 @@
+﻿@using System.Globalization
+@using Inventory360Web.Helpers
+@model Inventory360Web.Models.CommonComplainReceive
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>IndCollection</title>
+</head>
+<body>
+    <div>
+        <br />
+        <table style="width:100%; border: 1px solid black;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;width:40%">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                </td>
+                <td>
+                    <div style="text-align:center" class="reportTitle"><strong>Complain Receive Slip(RMA)</strong></div>
+                    <div class="addcon"><strong style="text-align:center"> Complain No &nbsp;: @Model.ReceiveNo</strong></div>
+
+                    <table>
+                        <tr>
+                            <td>Date &nbsp;: @Model.ReceiveDate.ToString("dd-MMM-yyyy HH:mm")</td>
+                            <td>Status &nbsp;: @Model.Approved</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Name &nbsp;: @Model.CustomerName</td>
+                            <td>Code &nbsp;: @Model.CustomerCode</td>
+                        </tr>
+                        <tr>
+                            <td>Address &nbsp;: @Model.CustomerAddress</td>
+                            <td>Cont. &nbsp;: @Model.CustomerPhone</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table style="width:100%; border: 1px solid black;">
+            <tr>
+                <td><strong>Remarks:</strong> @Model.Remarks</td>
+            </tr>
+        </table>
+        <br />
+        <div style="text-align:center"><strong>Product Information</strong></div>
+        <table class="table" style="width:100%;">
+            <thead>
+                <tr>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;">Sl No</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Product Name</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Problem Detail</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Spare Total</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Service Total</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Adjusted Total</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int @SlNo = 0;
+                    decimal @ComplainReceiveDetailTotal = 0;
+                }
+                @foreach (var item in Model.ComplainReceiveDetail)
+                {
+                    ++@SlNo;
+                    @ComplainReceiveDetailTotal = @ComplainReceiveDetailTotal + @item.TotalSpareAmount;
+                    <tr>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">@SlNo</td>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            <label>@item.ProductName</label><br />
+                            <label>Serial: @item.Serial</label><br />
+                            <strong>Remarks: @item.Remarks</strong>
+                        </td>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            @{int @ProblemSlNo = 0; }
+                            @foreach (var Problem in item.ComplainReceiveDetail_Problem)
+                            {
+                                ++@ProblemSlNo;
+
+                                <label style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;"><label>@ProblemSlNo.</label> @Problem.ProblemName</label><br />
+
+                            }
+
+                        </td>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">@item.TotalSpareAmount</td>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">@item.TotalSpareAmount</td>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">@item.TotalSpareAmount</td>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">@item.TotalSpareAmount</td>
+                    </tr>
+                                }
+                <tr>
+                    <td style="border:none"></td>
+                    <td style="border:none"></td>
+                    <td style="border:none"></td>
+                    <td style="border:none"></td>
+                    <td style="border:none"></td>
+                    <td style="text-align:right;border:none;vertical-align:top;padding-left:5px;padding-right:5px;">
+                        <strong>&nbsp;Total :</strong>
+                    </td>
+                    <td style="text-align:right;border:none;vertical-align:top;padding-left:5px;padding-right:5px;">
+                        <strong>@ComplainReceiveDetailTotal</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div style="width:100%">
+            <div style="width:50%;float:left">
+                <div style="text-align:center"><strong>Require Spare & Service Detail</strong></div>
+                <table class="table" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;padding-left:5px;padding-right:5px;">Spare Parts</th>
+                            <th style="text-align:right;padding-left:5px;padding-right:5px;">Quantity</th>
+                            <th style="text-align:right;padding-left:5px;padding-right:5px;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ComplainReceiveDetail)
+                        {
+                            foreach (var SpareProduct in item.ComplainReceiveDetail_SpareProduct)
+                            {
+                                <tr>
+                                    <th style="text-align:left;padding-left:5px;padding-right:5px;">@SpareProduct.ProductName</th>
+                                    <th style="text-align:right;padding-left:5px;padding-right:5px;">@SpareProduct.Quantity</th>
+                                    <th style="text-align:right;padding-left:5px;padding-right:5px;">@SpareProduct.Price</th>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div style="width:5%;float:right">
+
+            </div>
+            <div style="width:45%;float:right">
+                <table class="table" style="width:100%;">
+                    <tbody>
+                        @{
+                            decimal @totalCharge = 0;
+                            decimal @grandTotal = 0;
+                            decimal @grandTotalWithoutDiscount = 0;
+                        }
+                        @foreach (var item in Model.ComplainReceive_Charge)
+                        {
+                            totalCharge = totalCharge + @item.ChargeAmount;
+                            <tr>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;">@item.ChargeName</th>
+                                <th style="text-align:right;padding-left:5px;padding-right:5px;">@item.ChargeAmount</th>
+                            </tr>
+                        }
+                        <tr>
+                            <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>Total Charges:</strong></td>
+                            <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>@totalCharge</strong></td>
+                        </tr>
+                        <tr>
+                            @{
+                                grandTotal = ComplainReceiveDetailTotal + @totalCharge;
+                                <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>Grand Total :</strong></td>
+                                <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>@grandTotal</strong></td>
+                            }
+                        </tr>
+                        <tr>
+                            <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>Dis(BDT) :</strong></td>
+                            <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>10</strong></td>
+                        </tr>
+                        <tr>
+                            @{
+                                grandTotalWithoutDiscount = grandTotal - 10;
+                                <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>Grand Total :</strong></td>
+                                <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>@grandTotalWithoutDiscount</strong></td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+                <div>In Word : <strong>@Model.AmountInWord</strong></div>
+            </div>
+        </div>
+        <table class="table" style="width:100%; height:200px">
+            <tr>
+                <td width="50%" style="text-align:center;">
+                    <div>
+                        <label><strong>Delivred By</strong></label><br />
+                        <label><strong>@Model.RequestedBy</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>----------------------</strong></label><br />
+                        <label><strong>Signeture</strong></label>
+                    </div>
+                </td>  
+                <td width="50%" style="text-align:center;">
+                    <div>
+                        <label><strong>Received By</strong></label><br />
+                        <label><strong>On Behalf of Customer</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>----------------------</strong></label><br />
+                        <label><strong>Signeture</strong></label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

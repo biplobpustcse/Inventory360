@@ -1,0 +1,117 @@
+﻿@using System.Globalization
+@using Inventory360Web.Helpers
+@model Inventory360Web.Models.CommonTaskChequeTreatement
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>Cheque History</title>
+</head>
+<body>
+    <div>
+        <br />
+        <table style="width:100%; border: 1px solid black;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                </td>
+                <td>
+                    <div class="reportTitle"><strong>@Model.ReportName</strong></div>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @{
+            string CustomerOrSupplier = "Supplier";
+            string CollectionPaymentNumber = "Payment Number";
+            string CollectionPaymentDate = "Payment Date";
+            if (Model.ChequeType != "issuedCheque")
+            {
+                CustomerOrSupplier = "Customer";
+                CollectionPaymentNumber = "Collection Number";
+                CollectionPaymentDate = "Collection Date";
+            }
+
+            foreach (var CustomerOrSupplierNameItem in @Model.CustomerOrSupplierNameList)
+            {
+
+                string DateFrom = Model.DateFrom?.ToString("dd.MM.yyyy") ?? "All";
+                string DateTo = Model.DateTo?.ToString("dd.MM.yyyy") ?? "All";
+                if (!(DateFrom == "All" && DateTo == "All"))
+                {
+                    if (DateFrom == "All")
+                    {
+                        DateFrom = "-";
+                    }
+                    if (DateTo == "All")
+                    {
+                        DateTo = "-";
+                    }
+                }
+
+                <table style="width:100%;">
+                    <tr>
+                        <td style="width:100%;text-align:center" class="reportTitle"><div><strong>@CustomerOrSupplier: @CustomerOrSupplierNameItem.ToString() </strong></div></td>
+                    </tr>
+                    <tr>
+                        <td style="width:100%;text-align:center"><div><strong>Date From: @DateFrom To: @DateTo</strong></div></td>
+                    </tr>
+                    <tr>
+                        <td style="width:100%;text-align:center"><div><strong>Bank Compare with:@Model.ChequeInfoList[0].BankCompareWith</strong></div></td>
+                    </tr>
+                </table>
+                foreach (var ChequeInfo in Model.ChequeInfoList)
+                {
+                    if (CustomerOrSupplierNameItem.ToString() == ChequeInfo.CustomerOrSupplierName)
+                    {
+                <table class="table" style="width:100%;">
+                    <thead>
+                        @{
+                            <tr>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;width:15%;">Cheque No: @ChequeInfo.ChequeNo</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;width:15%;">Cheque Date:@ChequeInfo.ChequeDate.ToString("dd.MM.yyyy")</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;width:20%;">Bank: @ChequeInfo.BankName</th>
+                                <th style="text-align:right;padding-left:5px;padding-right:5px;width:10%;">Amount: @ChequeInfo.Amount</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;width:10%;">Current Status: @ChequeInfo.StatusName</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;width:15%;">@CollectionPaymentNumber: @ChequeInfo.CollectionOrPaymentNo</th>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;width:15%;">@CollectionPaymentDate: @ChequeInfo.CollectionOrPaymentDate.ToString("dd.MM.yyyy")</th>
+                            </tr>
+                        }
+                    </thead>
+                    @if (ChequeInfo.ChequeTreatment.Count > 0)
+                    {
+
+                        <tr>
+                            <th style="text-align:left;padding-left:5px;padding-right:5px;border:none;"></th>
+                            <th style="text-align:left;padding-left:5px;padding-right:5px;background-color: lightgray;">Treatemet Date</th>
+                            <th style="text-align:left;padding-left:5px;padding-right:5px;background-color: lightgray;">Status</th>
+                            <th style="text-align:left;padding-left:5px;padding-right:5px;background-color: lightgray;">Treatment Bank</th>
+                        </tr>
+                        <tbody>
+                            @foreach (var item in ChequeInfo.ChequeTreatment)
+                            {
+                                <tr>
+                                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:none"></td>
+                                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.StatusDate.ToString("dd.MM.yyyy")</td>
+                                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.StatusName</td>
+                                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.BankName</td>
+                                </tr>
+                            }
+                        </tbody>
+                    }
+                </table>
+                        <br />
+                    }
+                }
+
+            }
+        }
+    </div>
+</body>
+</html>

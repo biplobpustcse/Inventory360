@@ -1,0 +1,81 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inventory 360 &deg; | Login... </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <base href="/">
+</head>
+<body class="login" ng-app="myApp" ng-cloak>
+    <div ng-controller="loginController">
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    <form name="frmLogin" class="form-horizontal form-label-left input_mask" ng-submit="login()">
+                        <h1>Login</h1>
+                        <div class="form-group" ng-show="allCompanyJsonData.length > 1">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Company *</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <select class="form-control" required ng-model="account.companyId" ng-change="getLocationByCompanyForDropdown()">
+                                    <option ng-repeat="x in allCompanyJsonData" value="{{x.CompanyId}}">{{x.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                            <div class="form-group" ng-show="allLocationByCompanyJsonData.length > 2">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Location *</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <select class="form-control" required ng-model="account.locationId">
+                                        <option ng-repeat="x in allLocationByCompanyJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Username *</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Username" required="" name="username" ng-model="account.username" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Password *</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input type="password" class="form-control" placeholder="Password" required="" name="password" ng-model="account.password" />
+                                </div>
+                            </div>
+                            <div class="x_content">
+                                <button class="btn btn-default" type="submit" ng-disabled="frmLogin.$invalid">
+                                    <span class="fa fa-sign-in"></span> Login
+                                </button>
+                                <button class="btn btn-warning" type="button" ng-click="clickRefresh()">
+                                    <span class="fa fa-refresh"></span> Cancel
+                                </button>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="separator">
+                                <div>
+                                    <h1>Inventory 360 &deg;</h1>
+                                    <p>&copy; 2017 - @DateTime.Now.Year.ToString() Inventory360 Solution, All Rights Reserved.</p>
+                                </div>
+                            </div>
+</form>
+                </section>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    <script src="~/Scripts/myApp.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngControllers/account/loginController.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/account/accountService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/userService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+</body>
+</html>

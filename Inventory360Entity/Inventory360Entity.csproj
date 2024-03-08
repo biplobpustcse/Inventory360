@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0546B6FB-4BE6-4622-9CA3-F4E9F9AAAAD5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BizTechEntity</RootNamespace>
+    <AssemblyName>BizTechEntity</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration_Code.cs" />
+    <Compile Include="Configuration_CurrencyRate.cs" />
+    <Compile Include="Configuration_EventWiseCharge.cs" />
+    <Compile Include="Configuration_Features.cs" />
+    <Compile Include="Configuration_FormattingTag.cs" />
+    <Compile Include="Configuration_GovtDutyRate_HSCode.cs" />
+    <Compile Include="Configuration_GovtDutyRate_Location.cs" />
+    <Compile Include="Configuration_OperationalEvent.cs" />
+    <Compile Include="Configuration_OperationalEventDetail.cs" />
+    <Compile Include="Configuration_OperationType.cs" />
+    <Compile Include="Configuration_PaymentMode.cs" />
+    <Compile Include="Configuration_Voucher.cs" />
+    <Compile Include="Configuration_VoucherDetail.cs" />
+    <Compile Include="Inventory360Model.Context.cs" />
+    <Compile Include="Inventory360Model.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inventory360Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory360Model.cs" />
+    <Compile Include="Inventory360Model.Designer.cs">
+      <DependentUpon>Inventory360Model.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory360Model.Views.cs" />
+    <Compile Include="Inventory360Model1.cs">
+      <DependentUpon>Inventory360Model.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Others_Documents.cs" />
+    <Compile Include="Others_Menu.cs" />
+    <Compile Include="Others_Report.cs" />
+    <Compile Include="Others_ReportDesignConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security_Level.cs" />
+    <Compile Include="Security_Role.cs" />
+    <Compile Include="Security_RoleWiseMenuPermission.cs" />
+    <Compile Include="Security_User.cs" />
+    <Compile Include="Security_UserLocation.cs" />
+    <Compile Include="Security_UserWiseMenuPermission.cs" />
+    <Compile Include="Setup_Accounts.cs" />
+    <Compile Include="Setup_AccountsCashBankIdentification.cs" />
+    <Compile Include="Setup_AccountsControl.cs" />
+    <Compile Include="Setup_AccountsDetail_Location.cs" />
+    <Compile Include="Setup_AccountsGroup.cs" />
+    <Compile Include="Setup_AccountsSubGroup.cs" />
+    <Compile Include="Setup_AccountsSubsidiary.cs" />
+    <Compile Include="Setup_Bank.cs" />
+    <Compile Include="Setup_Brand.cs" />
+    <Compile Include="Setup_Capacity.cs" />
+    <Compile Include="Setup_Charge.cs" />
+    <Compile Include="Setup_Color.cs" />
+    <Compile Include="Setup_Company.cs" />
+    <Compile Include="Setup_ConvertionRatio.cs" />
+    <Compile Include="Setup_ConvertionRatioDetail.cs" />
+    <Compile Include="Setup_CostingControl.cs" />
+    <Compile Include="Setup_CostingGroup.cs" />
+    <Compile Include="Setup_CostingHead.cs" />
+    <Compile Include="Setup_Country.cs" />
+    <Compile Include="Setup_Customer.cs" />
+    <Compile Include="Setup_CustomerGroup.cs" />
+    <Compile Include="Setup_Designation.cs" />
+    <Compile Include="Setup_DocumentsGroup.cs" />
+    <Compile Include="Setup_DocumentsTitle.cs" />
+    <Compile Include="Setup_Employee.cs" />
+    <Compile Include="Setup_Features.cs" />
+    <Compile Include="Setup_GeoDistrict.cs" />
+    <Compile Include="Setup_GeoDivision.cs" />
+    <Compile Include="Setup_GeoPoliceStation.cs" />
+    <Compile Include="Setup_GeoRegion.cs" />
+    <Compile Include="Setup_GovtDuty.cs" />
+    <Compile Include="Setup_GovtDutyAdjustment.cs" />
+    <Compile Include="Setup_HSCode.cs" />
+    <Compile Include="Setup_Location.cs" />
+    <Compile Include="Setup_Measurement.cs" />
+    <Compile Include="Setup_Port.cs" />
+    <Compile Include="Setup_Price.cs" />
+    <Compile Include="Setup_PriceDetail.cs" />
+    <Compile Include="Setup_PriceType.cs" />
+    <Compile Include="Setup_Problem.cs" />
+    <Compile Include="Setup_Product.cs" />
+    <Compile Include="Setup_ProductCategory.cs" />
+    <Compile Include="Setup_ProductDimension.cs" />
+    <Compile Include="Setup_ProductGroup.cs" />
+    <Compile Include="Setup_ProductSubGroup.cs" />
+    <Compile Include="Setup_Profession.cs" />
+    <Compile Include="Setup_Project.cs" />
+    <Compile Include="Setup_RelatedProduct.cs" />
+    <Compile Include="Setup_Size.cs" />
+    <Compile Include="Setup_Style.cs" />
+    <Compile Include="Setup_SubFeatures.cs" />
+    <Compile Include="Setup_Supplier.cs" />
+    <Compile Include="Setup_SupplierGroup.cs" />
+    <Compile Include="Setup_TemplateHeader.cs" />
+    <Compile Include="Setup_TermsAndConditions.cs" />
+    <Compile Include="Setup_Transport.cs" />
+    <Compile Include="Setup_TransportType.cs" />
+    <Compile Include="Setup_UnitType.cs" />
+    <Compile Include="Stock_BadStock.cs" />
+    <Compile Include="Stock_BadStockSerial.cs" />
+    <Compile Include="Stock_CurrentStock.cs" />
+    <Compile Include="Stock_CurrentStockSerial.cs" />
+    <Compile Include="Stock_LIMStock.cs" />
+    <Compile Include="Stock_RMAStock.cs" />
+    <Compile Include="Stock_RMAStockSerial.cs" />
+    <Compile Include="Stock_TransitStock.cs" />
+    <Compile Include="Stock_TransitStockSerial.cs" />
+    <Compile Include="Task_ChequeInfo.cs" />
+    <Compile Include="Task_ChequeTreatment.cs" />
+    <Compile Include="Task_Collection.cs" />
+    <Compile Include="Task_CollectionDetail.cs" />
+    <Compile Include="Task_CollectionMapping.cs" />
+    <Compile Include="Task_CollectionNos.cs" />
+    <Compile Include="Task_Collection_GovtDutyAdjustment.cs" />
+    <Compile Include="Task_ComplainReceive.cs" />
+    <Compile Include="Task_ComplainReceiveDetail.cs" />
+    <Compile Include="Task_ComplainReceiveDetail_Problem.cs" />
+    <Compile Include="Task_ComplainReceiveDetail_SpareProduct.cs" />
+    <Compile Include="Task_ComplainReceiveNos.cs" />
+    <Compile Include="Task_ComplainReceive_Charge.cs" />
+    <Compile Include="Task_Convertion.cs" />
+    <Compile Include="Task_ConvertionDetail.cs" />
+    <Compile Include="Task_ConvertionDetailSerial.cs" />
+    <Compile Include="Task_ConvertionNos.cs" />
+    <Compile Include="Task_CustomerDelivery.cs" />
+    <Compile Include="Task_CustomerDeliveryDetail.cs" />
+    <Compile Include="Task_CustomerDeliveryDetail_Problem.cs" />
+    <Compile Include="Task_CustomerDeliveryDetail_SpareProduct.cs" />
+    <Compile Include="Task_CustomerDeliveryDetail_SpareSerial.cs" />
+    <Compile Include="Task_CustomerDeliveryNos.cs" />
+    <Compile Include="Task_CustomerDelivery_Charge.cs" />
+    <Compile Include="Task_DeliveryChallan.cs" />
+    <Compile Include="Task_DeliveryChallanDetail.cs" />
+    <Compile Include="Task_DeliveryChallanDetailSerial.cs" />
+    <Compile Include="Task_DeliveryChallanDetail_GovtDuty.cs" />
+    <Compile Include="Task_DeliveryChallanNos.cs" />
+    <Compile Include="Task_DeliveryChallan_Charge.cs" />
+    <Compile Include="Task_GoodsReceive.cs" />
+    <Compile Include="Task_GoodsReceiveDetail.cs" />
+    <Compile Include="Task_GoodsReceiveDetailSerial.cs" />
+    <Compile Include="Task_GoodsReceiveNos.cs" />
+    <Compile Include="Task_ImportCosting.cs" />
+    <Compile Include="Task_ImportCostingDetail.cs" />
+    <Compile Include="Task_ImportCostingNos.cs" />
+    <Compile Include="Task_ImportCostingProduct.cs" />
+    <Compile Include="Task_ImportDocuments.cs" />
+    <Compile Include="Task_ImportedStockIn.cs" />
+    <Compile Include="Task_ImportedStockInDetail.cs" />
+    <Compile Include="Task_ImportedStockInDetailSerial.cs" />
+    <Compile Include="Task_ImportedStockInNos.cs" />
+    <Compile Include="Task_ItemRequisition.cs" />
+    <Compile Include="Task_ItemRequisitionDetail.cs" />
+    <Compile Include="Task_ItemRequisitionNos.cs" />
+    <Compile Include="Task_LCOpening.cs" />
+    <Compile Include="Task_LCOpeningNos.cs" />
+    <Compile Include="Task_LIMStockIn.cs" />
+    <Compile Include="Task_LIMStockInDetail.cs" />
+    <Compile Include="Task_LIMStockInNos.cs" />
+    <Compile Include="Task_PartyAdjustment.cs" />
+    <Compile Include="Task_PartyAdjustmentDetail.cs" />
+    <Compile Include="Task_PartyAdjustmentNos.cs" />
+    <Compile Include="Task_Payment.cs" />
+    <Compile Include="Task_PaymentDetail.cs" />
+    <Compile Include="Task_PaymentMapping.cs" />
+    <Compile Include="Task_PaymentNos.cs" />
+    <Compile Include="Task_Payment_GovtDutyAdjustment.cs" />
+    <Compile Include="Task_PostedVoucher.cs" />
+    <Compile Include="Task_ProformaInvoice.cs" />
+    <Compile Include="Task_ProformaInvoiceDetail.cs" />
+    <Compile Include="Task_ProformaInvoiceNos.cs" />
+    <Compile Include="Task_PurchaseOrder.cs" />
+    <Compile Include="Task_PurchaseOrderDetail.cs" />
+    <Compile Include="Task_PurchaseOrderNos.cs" />
+    <Compile Include="Task_PurchaseReturn.cs" />
+    <Compile Include="Task_PurchaseReturnDetail.cs" />
+    <Compile Include="Task_PurchaseReturnDetailSerial.cs" />
+    <Compile Include="Task_PurchaseReturnNos.cs" />
+    <Compile Include="Task_ReceiveFinalize.cs" />
+    <Compile Include="Task_ReceiveFinalizeDetail.cs" />
+    <Compile Include="Task_ReceiveFinalizeDetailSerial.cs" />
+    <Compile Include="Task_ReceiveFinalizeNos.cs" />
+    <Compile Include="Task_ReplacementClaim.cs" />
+    <Compile Include="Task_ReplacementClaimDetail.cs" />
+    <Compile Include="Task_ReplacementClaimDetail_Problem.cs" />
+    <Compile Include="Task_ReplacementClaimNos.cs" />
+    <Compile Include="Task_ReplacementReceive.cs" />
+    <Compile Include="Task_ReplacementReceiveDetail.cs" />
+    <Compile Include="Task_ReplacementReceiveNos.cs" />
+    <Compile Include="Task_ReplacementReceive_Charge.cs" />
+    <Compile Include="Task_RequisitionFinalize.cs" />
+    <Compile Include="Task_RequisitionFinalizeDetail.cs" />
+    <Compile Include="Task_RequisitionFinalizeNos.cs" />
+    <Compile Include="Task_SalesInvoice.cs" />
+    <Compile Include="Task_SalesInvoiceDetail.cs" />
+    <Compile Include="Task_SalesInvoiceDetailSerial.cs" />
+    <Compile Include="Task_SalesInvoiceDetail_GovtDuty.cs" />
+    <Compile Include="Task_SalesInvoiceNos.cs" />
+    <Compile Include="Task_SalesInvoice_Charge.cs" />
+    <Compile Include="Task_SalesOrder.cs" />
+    <Compile Include="Task_SalesOrderDeliveryInfo.cs" />
+    <Compile Include="Task_SalesOrderDetail.cs" />
+    <Compile Include="Task_SalesOrderDetail_GovtDuty.cs" />
+    <Compile Include="Task_SalesOrderNos.cs" />
+    <Compile Include="Task_SalesOrder_Charge.cs" />
+    <Compile Include="Task_SalesQuotation.cs" />
+    <Compile Include="Task_SalesQuotationDetail.cs" />
+    <Compile Include="Task_SalesQuotationDetail_GovtDuty.cs" />
+    <Compile Include="Task_SalesQuotationNos.cs" />
+    <Compile Include="Task_SalesQuotation_Charge.cs" />
+    <Compile Include="Task_SalesQuotation_DeliveryInfo.cs" />
+    <Compile Include="Task_SalesQuotation_GovtDutyAdjustment.cs" />
+    <Compile Include="Task_SalesQuotation_Header.cs" />
+    <Compile Include="Task_SalesQuotation_SecurityAndBanking.cs" />
+    <Compile Include="Task_SalesReturn.cs" />
+    <Compile Include="Task_SalesReturnDetail.cs" />
+    <Compile Include="Task_SalesReturnDetailSerial.cs" />
+    <Compile Include="Task_SalesReturnNos.cs" />
+    <Compile Include="Task_StockAdjustment.cs" />
+    <Compile Include="Task_StockAdjustmentDetail.cs" />
+    <Compile Include="Task_StockAdjustmentDetailSerial.cs" />
+    <Compile Include="Task_StockAdjustmentNos.cs" />
+    <Compile Include="Task_TransferChallan.cs" />
+    <Compile Include="Task_TransferChallanDetail.cs" />
+    <Compile Include="Task_TransferChallanDetailSerial.cs" />
+    <Compile Include="Task_TransferChallanNos.cs" />
+    <Compile Include="Task_TransferOrder.cs" />
+    <Compile Include="Task_TransferOrderDetail.cs" />
+    <Compile Include="Task_TransferOrderNos.cs" />
+    <Compile Include="Task_TransferReceive.cs" />
+    <Compile Include="Task_TransferReceiveDetail.cs" />
+    <Compile Include="Task_TransferReceiveDetailSerial.cs" />
+    <Compile Include="Task_TransferReceiveNos.cs" />
+    <Compile Include="Task_TransferRequisitionFinalize.cs" />
+    <Compile Include="Task_TransferRequisitionFinalizeDetail.cs" />
+    <Compile Include="Task_TransferRequisitionFinalizeNos.cs" />
+    <Compile Include="Task_Voucher.cs" />
+    <Compile Include="Task_VoucherDetail.cs" />
+    <Compile Include="Task_VoucherNos.cs" />
+    <Compile Include="TempCustomerOrSupplierWiseChequePerformance.cs" />
+    <Compile Include="Temp_AccountsLedgerDetail.cs" />
+    <Compile Include="Temp_AccountsLedgerOrProvisionalLedger.cs" />
+    <Compile Include="Temp_ChequeInfo.cs" />
+    <Compile Include="Temp_Collection.cs" />
+    <Compile Include="Temp_CollectionDetail.cs" />
+    <Compile Include="Temp_CollectionMapping.cs" />
+    <Compile Include="Temp_CustomerSupplierOutstanding.cs" />
+    <Compile Include="Temp_PartyLedger.cs" />
+    <Compile Include="Temp_SalesInvoice.cs" />
+    <Compile Include="Temp_SalesInvoiceDetail.cs" />
+    <Compile Include="Temp_SalesInvoiceDetailSerial.cs" />
+    <Compile Include="Temp_SalesInvoiceDetail_GovtDuty.cs" />
+    <Compile Include="Temp_SalesInvoice_Charge.cs" />
+    <Compile Include="Temp_TrialBalance.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Inventory360Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Inventory360Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Inventory360Model.edmx.diagram">
+      <DependentUpon>Inventory360Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Inventory360Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Inventory360Model.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Inventory360Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Inventory360Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "Problem...";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- page content -->
+<div id="content" ng-controller="problemSetupController">
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Problem Setup</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <form name="frmProblem" class="form-horizontal form-label-left input_mask">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Event *</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12 xdisplay_inputx form-group has-feedback" style="margin-bottom:0px !important;">
+                                        <select class="form-control" required ng-model="selectedEventName" ng-change="getSelectedEventSubEventForDropdown()">
+                                            <option ng-repeat="x in operationalEventJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Sub-Event *</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12 xdisplay_inputx form-group has-feedback" style="margin-bottom:0px !important;">
+                                        <select class="form-control" required ng-model="selectedSubEventName">
+                                            <option ng-repeat="x in operationalSubEventJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Name *</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input class="form-control" name="problemName" type="text" placeholder="Problem Name" maxlength="100" required ng-model="problemName" />
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button type="button" class="btn btn-app" ng-if="saveMode" ng-disabled="frmProblem.$invalid" ng-click="clickSave()"><i class="fa fa-save"></i>Save</button>
+                                    <button type="button" class="btn btn-app" ng-if="!saveMode" ng-disabled="frmProblem.$invalid" ng-click="clickUpdate()"><i class="fa fa-edit"></i>Update</button>
+                                    <a target="_self" class="btn btn-app" href="@Url.Action("Index", "ProblemSetup")"><i class="fa fa-refresh"></i>New</a>
+                                    <a target="_self" class="btn btn-app" href="@Url.Action("Index", "Home")"><i class="fa fa-close"></i>Close</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Lists</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <input class="form-control" style="width:100%;" type="text" placeholder="Search by name..." name="searchProblem" ng-model="searchProblem" ng-change="filterProblem()" />
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 6px !important;">
+                                    <div class="col-md-7 col-sm-12 col-xs-12">
+                                        <div class="dataTables_info" role="status" aria-live="polite">{{showRecordsInfo}}</div>
+                                    </div>
+                                    <div class="col-md-5 col-sm-12 col-xs-12" ng-show="showGrid">
+                                        <div class="dataTables_paginate paging_simple_numbers">
+                                            <ul class="pagination">
+                                                <li class="paginate_button previous" ng-class="pageIndex > 1 ? 'active' : 'disabled'">
+                                                    <a href="#" aria-controls="datatable" ng-click="previous($event)"><i class="fa fa-arrow-circle-left"></i> Previous</a>
+                                                </li>
+                                                <li class="paginate_button next" ng-class="pageIndex < allProblemJsonLists.LastPageNo ? 'active' : 'disabled'">
+                                                    <a href="#" aria-controls="datatable" ng-click="next($event)">Next <i class="fa fa-arrow-circle-right"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" ng-show="showGrid">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Event</th>
+                                                        <th>Sub Event</th>
+                                                        <th>Problem Name</th>
+                                                        <th>&nbsp;</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allProblemJsonLists.Data">
+                                                        <td>{{item.EventName}}</td>
+                                                        <td>{{item.SubEventName}}</td>
+                                                        <td>{{item.Name}}</td>
+                                                        <td>
+                                                            <div class="pull-right">
+                                                                <button ng-click="clickToEdit(item)" class="btn btn-info btn-xs" style="margin-bottom: 0px;" title="Edit">
+                                                                    <span class="fa fa-edit"></span>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+
+@section scripts{
+    <script src="~/Scripts/ngControllers/setup/problemSetup/problemSetupController.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/setup/problemSetup/problemSetupService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>    
+    <script src="~/Scripts/ngServices/common/operationalEventCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/operationalSubEventCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+}

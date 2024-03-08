@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Database Update...";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- page content -->
+<div id="content" ng-controller="databaseUpdateController">
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Database Update</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <form class="form-horizontal form-label-left input_mask">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button type="button" class="btn btn-app" ng-click="clickUpdate()"><i class="fa fa-retweet"></i>Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+
+@section scripts{
+    <script src="~/Scripts/ngControllers/databaseUpdateController.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/databaseUpdateService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+}

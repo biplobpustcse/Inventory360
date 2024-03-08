@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Approve Complain Receive...";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- page content -->
+<div id="content" ng-controller="complainReceiveApproveController">
+    <div class="right_col"  role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Approve Complain Receive</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <form class="form-horizontal form-label-left input_mask">
+                                <div class="form-group">
+                                    <label class="control-label col-md-1 col-sm-1 col-xs-12">Search</label>
+                                    <div class="col-md-11 col-sm-11 col-xs-12">
+                                        <input class="form-control" style="width:100%;" type="text" placeholder="Search by Complain Receive no, customer code, name or contact no..." maxlength="100" name="searchComplainReceiveNo" ng-model="searchComplainReceiveNo" ng-change="filterCollectionNo()" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-7 col-sm-12 col-xs-12">
+                                    <div role="status" aria-live="polite">{{showRecordsInfo}}</div>
+                                </div>
+                                <div class="form-group col-md-5 col-sm-12 col-xs-12" ng-show="showGrid" style="margin-bottom: 0px !important;">
+                                    <div class="dataTables_paginate paging_simple_numbers">
+                                        <ul class="pagination">
+                                            <li class="paginate_button previous" ng-class="pageIndex > 1 ? 'active' : 'disabled'">
+                                                <a href="#" aria-controls="datatable" ng-click="previous($event)"><i class="fa fa-arrow-circle-left"></i> Previous</a>
+                                            </li>
+                                            <li class="paginate_button next" ng-class="pageIndex < unApprovedComplainReceiveJsonLists.LastPageNo ? 'active' : 'disabled'">
+                                                <a href="#" aria-controls="datatable" ng-click="next($event)">Next <i class="fa fa-arrow-circle-right"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="row" ng-show="showGrid">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Complain Receive No.</th>
+                                                        <th>Code</th>
+                                                        <th>Customer/Buyer</th>
+                                                        <th>Contact No</th>
+                                                        <th><span class="pull-right">Service Amount</span></th>
+                                                        <th style="width: 60px;">&nbsp;</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in unApprovedComplainReceiveJsonLists.Data">
+                                                        <td>{{item.ReceiveDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.ReceiveNo}}</td>
+                                                        <td>{{item.CustomerCode}}</td>
+                                                        <td>{{item.CustomerName}}</td>
+                                                        <td>{{item.CustomerPhoneNo}}</td>
+                                                        <td><span class="pull-right">{{item.TotalChargeAmount.toFixed(2)}}</span></td>
+                                                        <td>
+                                                            <div class="pull-right">
+                                                                <button ng-click="approveComplainReceive(item.ReceiveId, item.ReceiveNo)" class="btn btn-warning btn-xs" style="margin-bottom: 0px;margin-right:0px;" title="Approve Complain Receive">
+                                                                    <span class="fa fa-check-circle"></span>
+                                                                </button>
+                                                                <button ng-click="PrintReport(item.ReceiveId)" class="btn btn-info btn-xs" style="margin-bottom: 0px;" title="Complain Receive Report">
+                                                                    <span class="fa fa-print"></span>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <a target="_self" class="btn btn-app" href="@Url.Action("Index", "Home")"><i class="fa fa-close"></i>Close</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+
+@section scripts{    
+    <script src="~/Scripts/ngControllers/approve/RMA/complainReceiveApproveController.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/task/RMA/unApprovedComplainReceiveService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/task/RMA/complainReceiveApproveService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/currencyCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+}

@@ -1,0 +1,142 @@
+﻿@using System.Globalization
+@using Inventory360Web.Helpers
+@model Inventory360Web.Models.CommonConvertionRatio
+
+@{
+    Layout = null;
+    int @SlNo = 0;
+    string @Serial = "";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>Convertion Ratio</title>
+</head>
+<body>
+    <div>
+        <br />
+        <table style="width:100%; border: 1px solid black;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;width:40%">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                    <div class="addcon">@Html.GenerateQrCode(Model.RatioNo)</div>
+                </td>
+                <td>
+                    <div style="text-align:center" class="reportTitle"><strong>Conversion Individual Report</strong></div>
+                    <table>
+                        <tr style="font-weight:bold;">
+                            <td>Conversion Ration Number&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.RatioNo</td>
+                        </tr>
+                        <tr style="font-weight:bold;">
+                            <td>Date&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.RatioDate.ToString("dd-MMM-yyyy")</td>
+                        </tr>        
+                        <tr style="font-weight:bold;">
+                            <td>Approval Status&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.Approved</td>
+                        </tr>
+                        <tr style="font-weight:bold;">
+                            <td>Approved By&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.ApprovedBy</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <div style="text-align:center"><strong>Main product</strong></div>
+        <table class="table" style="width:100%;">
+            <thead>
+                <tr>
+                    <th style="text-align:center;padding-left:5px;padding-right:5px;">Sl No</th>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;">Product Name</th>
+                    <th style="text-align:center;padding-left:5px;padding-right:5px;">Unit Type</th>
+                    <th style="text-align:center;padding-left:5px;padding-right:5px;">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ConvertionRatioDetail)
+                {
+                    if (@item.ProductFor == "M")
+                    {
+                        ++@SlNo;                       
+                        <tr>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;">@SlNo</td>
+                            <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.ProductName</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;">@item.UnitType</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;">@Math.Round(@item.Quantity,0)</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <br />
+        <div style="text-align:center"><strong>Component product</strong></div>
+        <table class="table" style="width:100%;">
+            <thead>
+                <tr>
+                    <th style="text-align:center;padding-left:5px;padding-right:5px;">Sl No</th>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;">Product Name</th>
+                    <th style="text-align:center;padding-left:5px;padding-right:5px;">Unit Type</th>
+                    <th style="text-align:center;padding-left:5px;padding-right:5px;">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    SlNo = 0;
+                }
+                @foreach (var item in Model.ConvertionRatioDetail)
+                {
+                    if (@item.ProductFor == "C")
+                    {
+                        ++@SlNo;
+                        @Serial = "";
+                        <tr>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;">@SlNo</td>
+                            <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@item.ProductName</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;">@item.UnitType</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;">@Math.Round(@item.Quantity,0)</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <br>
+        <table class="table" style="width:100%;">
+            <tr>
+                <td width="50%" style="text-align:center;">
+                    <div>
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label>Print Date & Time: @DateTime.Now.ToString("dd-MMM-yyyy")</label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>&nbsp;</strong></label>
+                    </div>
+                </td>
+                <td width="50%" style="text-align:center;">
+                    <div>
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>----------------------</strong></label><br />
+                        <label><strong>Signeture</strong></label><br />
+                        <label><strong>&nbsp;</strong></label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

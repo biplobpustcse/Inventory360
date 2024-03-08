@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{97195A92-2FFF-418E-B9C5-E0AF04D7A477}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BizTechDataModel</RootNamespace>
+    <AssemblyName>BizTechDataModel</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonAccountsCategorization.cs" />
+    <Compile Include="CommonAdvanceSearch.cs" />
+    <Compile Include="CommonChequeStatusGroup.cs" />
+    <Compile Include="CommonCompanyCurrency.cs" />
+    <Compile Include="CommonConvertedStock.cs" />
+    <Compile Include="CommonCurrencyRate.cs" />
+    <Compile Include="CommonRange.cs" />
+    <Compile Include="CommonSetupCompany.cs" />
+    <Compile Include="CurrencyConvertedAmount.cs" />
+    <Compile Include="CurrencyConvertedVoucherAmount.cs" />
+    <Compile Include="CurrencyTools.cs" />
+    <Compile Include="Inventory360Report\ReportAccountsLedgerOrProvisionalLedger.cs" />
+    <Compile Include="Inventory360Report\ReportIncomeStatement.cs" />
+    <Compile Include="Inventory360Report\ReportTrialBalance.cs" />
+    <Compile Include="MyConversion.cs" />
+    <Compile Include="Setup\CommonSetupConvertionRatio.cs" />
+    <Compile Include="Setup\CommonSetupConvertionRatioDetail.cs" />
+    <Compile Include="Setup\CommonSetupCustomerShortInfo.cs" />
+    <Compile Include="Setup\CommonSetupLocation.cs" />
+    <Compile Include="CommonHeader.cs" />
+    <Compile Include="CommonList.cs" />
+    <Compile Include="CommonResultList.cs" />
+    <Compile Include="CommonEnum.cs" />
+    <Compile Include="CommonRecordInformation.cs" />
+    <Compile Include="CommonResult.cs" />
+    <Compile Include="CommonSecurityLoginCredential.cs" />
+    <Compile Include="CommonSecurityUser.cs" />
+    <Compile Include="CommonSetupAccountsControl.cs" />
+    <Compile Include="CommonSetupAccountsGroup.cs" />
+    <Compile Include="CommonSetupAccountsSetup.cs" />
+    <Compile Include="CommonSetupAccountsSubGroup.cs" />
+    <Compile Include="CommonSetupAccountsSubsidiary.cs" />
+    <Compile Include="CommonSetupBank.cs" />
+    <Compile Include="Setup\CommonSetupBrand.cs" />
+    <Compile Include="Setup\CommonSetupCapacity.cs" />
+    <Compile Include="CommonSetupCashBankIdentification.cs" />
+    <Compile Include="Setup\CommonSetupColor.cs" />
+    <Compile Include="CommonSetupCustomerGroup.cs" />
+    <Compile Include="CommonSetupDesignation.cs" />
+    <Compile Include="CommonSetupEmployee.cs" />
+    <Compile Include="Setup\CommonSetupCustomer.cs" />
+    <Compile Include="Setup\CommonSetupCustomerFinancialInfo.cs" />
+    <Compile Include="Setup\CommonSetupMeasurement.cs" />
+    <Compile Include="Setup\CommonSetupPrice.cs" />
+    <Compile Include="Setup\CommonSetupPriceType.cs" />
+    <Compile Include="Setup\CommonSetupProduct.cs" />
+    <Compile Include="Setup\CommonSetupProductAdditionalInfo.cs" />
+    <Compile Include="Setup\CommonSetupProductCategory.cs" />
+    <Compile Include="Setup\CommonSetupProductDimension.cs" />
+    <Compile Include="Setup\CommonSetupProductGroup.cs" />
+    <Compile Include="Setup\CommonSetupProductSearch.cs" />
+    <Compile Include="Setup\CommonSetupProductSearchDetail.cs" />
+    <Compile Include="Setup\CommonSetupProductSubGroup.cs" />
+    <Compile Include="Setup\CommonSetupProfession.cs" />
+    <Compile Include="Setup\CommonSetupProject.cs" />
+    <Compile Include="Setup\CommonSetupRelatedProduct.cs" />
+    <Compile Include="Setup\CommonSetupSupplier.cs" />
+    <Compile Include="Setup\CommonSetupSupplierFinancialInfo.cs" />
+    <Compile Include="Setup\CommonSetupSupplierGroup.cs" />
+    <Compile Include="Setup\CommonSetupProblemSetup.cs" />
+    <Compile Include="Setup\CommonSetupTemplateHeader.cs" />
+    <Compile Include="Setup\CommonSetupTermsAndConditions.cs" />
+    <Compile Include="Setup\CommonSetupTransport.cs" />
+    <Compile Include="Setup\CommonSetupTransportType.cs" />
+    <Compile Include="Setup\CommonSetupUnitType.cs" />
+    <Compile Include="CommonTaskPostedVoucher.cs" />
+    <Compile Include="CommonTaskVoucher.cs" />
+    <Compile Include="CommonTaskVoucherDetail.cs" />
+    <Compile Include="CommonUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setup\CommonSetupSize.cs" />
+    <Compile Include="Setup\CommonSetupStyle.cs" />
+    <Compile Include="Setup\Grid\CommonSetupProductDimensionForGrid.cs" />
+    <Compile Include="Setup\Grid\CommonSetupProductForGrid.cs" />
+    <Compile Include="Setup\Grid\CommonSetupRelatedProductForGrid.cs" />
+    <Compile Include="Task\CommonComplainReceive.cs" />
+    <Compile Include="Task\CommonComplainReceiveDetail.cs" />
+    <Compile Include="Task\CommonComplainReceiveDetail_Charge.cs" />
+    <Compile Include="Task\CommonComplainReceiveDetail_Problem.cs" />
+    <Compile Include="Task\CommonComplainReceiveDetail_SpareProduct.cs" />
+    <Compile Include="Task\CommonComplainReceive_Charge.cs" />
+    <Compile Include="Task\CommonProductWarehouseByLocation.cs" />
+    <Compile Include="Task\CommonReplacementClaim.cs" />
+    <Compile Include="Task\CommonReplacementClaimDetail.cs" />
+    <Compile Include="Task\CommonReplacementClaimDetail_Problem.cs" />
+    <Compile Include="Task\CommonStock_RMAStock.cs" />
+    <Compile Include="Task\CommonStock_RMAStockSerial.cs" />
+    <Compile Include="Task\CommonTaskChequeTreatment.cs" />
+    <Compile Include="Task\CommonTaskChequeTreatmentDTO.cs" />
+    <Compile Include="Task\CommonTaskCollection.cs" />
+    <Compile Include="Task\CommonTaskCollectionDetail.cs" />
+    <Compile Include="Task\CommonTaskCollectionMapping.cs" />
+    <Compile Include="Task\CommonTaskConvertion.cs" />
+    <Compile Include="Task\CommonTaskConvertionDetailSerial.cs" />
+    <Compile Include="Task\CommonTaskConvertionDetail.cs" />
+    <Compile Include="Task\CommonTaskConvertionDetailSerial.cs" />
+    <Compile Include="Task\CommonTaskCustomerDelivery.cs" />
+    <Compile Include="Task\CommonTaskCustomerDeliveryDetail.cs" />
+    <Compile Include="Task\CommonTaskCustomerDeliveryDetail_Problem.cs" />
+    <Compile Include="Task\CommonTaskCustomerDeliveryDetail_SpareProduct.cs" />
+    <Compile Include="Task\CommonTaskCustomerDelivery_Charge.cs" />
+    <Compile Include="Task\CommonTaskDeliveryChallan.cs" />
+    <Compile Include="Task\CommonTaskDeliveryChallanDetail.cs" />
+    <Compile Include="Task\CommonTaskDirectSales.cs" />
+    <Compile Include="Task\CommonTaskGoodsReceive.cs" />
+    <Compile Include="Task\CommonTaskGoodsReceiveDetail.cs" />
+    <Compile Include="Task\CommonTaskGoodsReceiveFinalize.cs" />
+    <Compile Include="Task\CommonTaskGoodsReceiveFinalizeDetail.cs" />
+    <Compile Include="Task\CommonTaskItemRequisition.cs" />
+    <Compile Include="Task\CommonTaskItemRequisitionDetail.cs" />
+    <Compile Include="Task\CommonTaskPayment.cs" />
+    <Compile Include="Task\CommonTaskProductSerial.cs" />
+    <Compile Include="Task\CommonTaskPurchaseOrder.cs" />
+    <Compile Include="Task\CommonTaskPurchaseOrderDetail.cs" />
+    <Compile Include="Task\CommonTaskReplacementReceive.cs" />
+    <Compile Include="Task\CommonTaskReplacementReceiveDetail.cs" />
+    <Compile Include="Task\CommonTaskReplacementReceive_Charge.cs" />
+    <Compile Include="Task\CommonTaskRequisitionFinalize.cs" />
+    <Compile Include="Task\CommonTaskRequisitionFinalizeDetail.cs" />
+    <Compile Include="Task\CommonTaskSalesInvoice.cs" />
+    <Compile Include="Task\CommonTaskSalesInvoiceDetail.cs" />
+    <Compile Include="Task\CommonTaskSalesOrder.cs" />
+    <Compile Include="Task\CommonTaskSalesOrderDetail.cs" />
+    <Compile Include="Task\CommonTaskStockAdjustment.cs" />
+    <Compile Include="Task\CommonTaskStockAdjustmentDetail.cs" />
+    <Compile Include="Task\CommonTransferOrder.cs" />
+    <Compile Include="Task\CommonTransferOrderDetail.cs" />
+    <Compile Include="Task\CommonTransferRequisitionFinalize.cs" />
+    <Compile Include="Task\CommonTransferRequisitionFinalizeDetail.cs" />
+    <Compile Include="Temp\TempAccountsLedgerOrProvisionalLedger.cs" />
+    <Compile Include="Temp\TempChequeTreatement.cs" />
+    <Compile Include="Temp\TempStatusList.cs" />
+    <Compile Include="Temp\TempTrialBalance.cs" />
+    <Compile Include="UserIdentityInfo.cs" />
+    <Compile Include="WhereIFClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,127 @@
+﻿@using System.Globalization
+@model Inventory360Web.Models.CommonSalesAnalysisReport
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>Date Wise Sales Report</title>
+</head>
+<body>
+    <div style="font-size: 13px;">
+        <br />
+        <table style="width:100%; border: 1px solid black;border-collapse:collapse;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                </td>
+                <td style="width:350px;">
+                    <div class="reportTitle"><strong>@Model.ReportName Report</strong></div>
+                    <table>
+                        <tr>
+                            <td style="padding-left:5px;">@Model.DateRange</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @{
+            var salesDateLists = Model.SalesAnalysisLists.OrderBy(o => o.InvoiceDate).Select(s => s.InvoiceDate).Distinct().ToList();
+            foreach (var indSalesDate in salesDateLists)
+            {
+                <table style="width:100%; border-collapse: collapse;">
+                    @{
+                        <tr style="font-weight:bold;">
+                            <td colspan="10" style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Sales Date # @indSalesDate.ToString("dd-MMM-yyyy")</td>
+                        </tr>
+                        var locationLists = Model.SalesAnalysisLists.Where(x => x.InvoiceDate == indSalesDate).Select(s => s.Location).Distinct().ToList();
+                        var dateWiseTotalAmount = Model.SalesAnalysisLists.Where(x => x.InvoiceDate == indSalesDate).Sum(s => s.ProductWiseAmount);
+                        var dateWiseTotalDiscount = Model.SalesAnalysisLists.Where(x => x.InvoiceDate == indSalesDate).Sum(s => s.ProductWiseDiscount);
+                        var dateWiseTotalInvDisc = Model.SalesAnalysisLists.Where(x => x.InvoiceDate == indSalesDate).Sum(s => s.InvDiscPerProduct);
+                        var dateWiseTotal = Model.SalesAnalysisLists.Where(x => x.InvoiceDate == indSalesDate).Sum(s => s.ProductWiseAmount - s.ProductWiseDiscount - s.InvDiscPerProduct);
+                        foreach (var indLocation in locationLists)
+                        {
+                            <tr style="font-weight:bold;">
+                                <td colspan="9" style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Location # @indLocation</td>
+                            </tr>
+                            <tr style="font-weight:bold; background-color:aqua;">
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Invoice No.</td>
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Customer</td>
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Sales Person</td>
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Sales Mode</td>
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Sold By</td>
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Approved By</td>
+                                <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Amount (@Model.CurrencyType)</td>
+                                <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Discount (@Model.CurrencyType)</td>
+                                <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Inv. Discount (@Model.CurrencyType)</td>
+                                <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Total (@Model.CurrencyType)</td>
+                            </tr>
+                            var locationWiseTotalAmount = Model.SalesAnalysisLists.Where(x => x.InvoiceDate == indSalesDate && x.Location.Equals(indLocation)).Sum(s => s.ProductWiseAmount);
+                            var locationWiseTotalDiscount = Model.SalesAnalysisLists.Where(x => x.InvoiceDate == indSalesDate && x.Location.Equals(indLocation)).Sum(s => s.ProductWiseDiscount);
+                            var locationWiseTotalInvDisc = Model.SalesAnalysisLists.Where(x => x.InvoiceDate == indSalesDate && x.Location.Equals(indLocation)).Sum(s => s.InvDiscPerProduct);
+                            var locationWiseTotal = Model.SalesAnalysisLists.Where(x => x.InvoiceDate == indSalesDate && x.Location.Equals(indLocation)).Sum(s => s.ProductWiseAmount - s.ProductWiseDiscount - s.InvDiscPerProduct);
+                            var dataLists = Model.SalesAnalysisLists.Where(x => x.InvoiceDate == indSalesDate && x.Location.Equals(indLocation))
+                                                        .GroupBy(g => new { g.InvoiceDate, g.Location, g.InvoiceNo, g.Customer, g.SalesPerson, g.EntryBy, g.ApprovedBy },
+                                                            (key, g) => new
+                                                            {
+                                                                key.InvoiceNo,
+                                                                key.Customer,
+                                                                key.SalesPerson,
+                                                                SalesMode = g.Select(s => s.SalesMode).FirstOrDefault(),
+                                                                key.EntryBy,
+                                                                key.ApprovedBy,
+                                                                Amount = g.Sum(s => s.ProductWiseAmount),
+                                                                Discount = g.Sum(s => s.ProductWiseDiscount),
+                                                                InvDiscount = g.Sum(s => s.InvDiscPerProduct),
+                                                                Total = g.Sum(s => s.ProductWiseAmount - s.ProductWiseDiscount - s.InvDiscPerProduct)
+                                                            })
+                                                        .OrderBy(o => o.InvoiceNo)
+                                                        .ToList();
+                            foreach (var indData in dataLists)
+                            {
+                                <tr>
+                                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.InvoiceNo</td>
+                                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.Customer</td>
+                                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.SalesPerson</td>
+                                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.SalesMode</td>
+                                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.EntryBy</td>
+                                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ApprovedBy</td>
+                                    <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.Amount.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                                    <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.Discount.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                                    <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.InvDiscount.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                                    <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.Total.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                                </tr>
+                            }
+                            <tr style="font-weight:bold;">
+                                <td colspan="6" style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Location Wise Total (@Model.CurrencyType)</td>
+                                <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@locationWiseTotalAmount.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                                <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@locationWiseTotalDiscount.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                                <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@locationWiseTotalInvDisc.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                                <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@locationWiseTotal.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                            </tr>
+                        }
+                        <tr style="font-weight:bold;">
+                            <td colspan="6" style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Date Wise Total (@Model.CurrencyType)</td>
+                            <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@dateWiseTotalAmount.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                            <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@dateWiseTotalDiscount.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                            <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@dateWiseTotalInvDisc.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                            <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@dateWiseTotal.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                        </tr>
+                    }
+                </table>
+                <br />
+            }
+            <span style="font-weight:bold; float: right;">Grand Total (@Model.CurrencyType) # @Model.SalesAnalysisLists.Sum(s => s.ProductWiseAmount - s.ProductWiseDiscount - s.InvDiscPerProduct).ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</span>
+        }
+    </div>
+</body>
+</html>

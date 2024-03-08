@@ -1,0 +1,197 @@
+﻿@using System.Globalization
+@using Inventory360Web.Helpers
+@model Inventory360Web.Models.CommonReplacementReceive
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>IndCollection</title>
+</head>
+<body>
+    <div>
+        <br />
+        <table style="width:100%; border: 1px solid black;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;width:40%">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                </td>
+                <td style="border-right: 1px solid black;width:60%">
+                    <div style="text-align:center" class="companyHeader"><strong>Replacement Receive(RMA)</strong></div>
+                    <table>
+                        <tr>
+                            <td><strong>Replacement Receive No &nbsp;: @Model.ReceiveNo</strong></td>
+                            <td>Date &nbsp;: @Model.ReceiveDate.ToString("dd-MMM-yyyy HH:mm")</td>
+                        </tr>
+                        <tr>
+                            <td>Status &nbsp;: @Model.Status&nbsp;@( string.IsNullOrEmpty(Model.CancelReason) ? string.Empty : "(" + Model.CancelReason + ")" )</td>
+                            <td>Approved/Cancelled By &nbsp;: @Model.ApprovedBy</td>
+                        </tr>
+                        <tr>
+                            <td>Supplier Name &nbsp;: @Model.SupplierName</td>
+                            <td>Code &nbsp;: @Model.SupplierCode</td>
+                        </tr>
+                        <tr>
+                            <td>Address &nbsp;: @Model.SupplierAddress</td>
+                            <td>Cont. &nbsp;: @Model.SupplierPhone</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table style="width:100%; border: 1px solid black;">
+            <tr>
+                <td><strong>Remarks:</strong> @Model.Remarks</td>
+            </tr>
+        </table>
+        <br />
+        <div style="text-align:center"><strong>Product Information</strong></div>
+        <table class="table" style="width:100%;">
+            <thead>
+                <tr>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;">Sl No</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Product Name</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Serial</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Old Product</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Old Serial</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Replacement Claim No</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Adjusted Type</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Adjusted Amount</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int @SlNo = 0;
+                    decimal @AdjustedAmountTotal = 0;
+                }
+                @foreach (var item in Model.ReplacementReceiveDetail)
+                {
+                    ++@SlNo;
+                    if (@item.AdjustmentType == "Addition")
+                        AdjustedAmountTotal = AdjustedAmountTotal + @item.AdjustedAmount;
+                    else if (@item.AdjustmentType == "Deduction")
+                        @AdjustedAmountTotal = @AdjustedAmountTotal - @item.AdjustedAmount;
+
+                    <tr>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">@SlNo</td>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            <label>@item.NewProductName</label>
+                        </td>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            <label>@item.NewSerial</label>
+                        </td>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            <label>@item.PreviousProductName</label>
+                        </td>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            <label>@item.PreviousSerial</label>
+                        </td>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            <label>@item.ClaimNo</label>
+                        </td>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            <label>@item.AdjustmentType</label>
+                        </td>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            <label>@item.AdjustedAmount</label>
+                        </td>
+                    </tr>                    
+                }
+                <tr>
+                    <td style="border:none"></td>
+                    <td style="border:none"></td>
+                    <td style="border:none"></td>
+                    <td style="border:none"></td>
+                    <td style="border:none"></td>
+                    <td style="border:none"></td>
+                    <td style="text-align:right;border:none;vertical-align:top;padding-left:5px;padding-right:5px;">
+                        <strong>&nbsp;Total :</strong>
+                    </td>
+                    <td style="text-align:right;border:none;vertical-align:top;padding-left:5px;padding-right:5px;">
+                        <strong>@AdjustedAmountTotal</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <div style="width:100%">
+            <div style="width:50%;float:right">
+                <table class="table" style="width:100%;">
+                    <tbody>
+                        @{
+                            decimal @totalCharge = 0;
+                            decimal @grandTotal = 0;
+                            decimal @grandTotalWithoutDiscount = 0;
+                        }
+                        @foreach (var item in Model.ReplacementReceive_Charge)
+                        {
+                            totalCharge = totalCharge + @item.ChargeAmount;
+                            <tr>
+                                <th style="text-align:left;padding-left:5px;padding-right:5px;">@item.ChargeName</th>
+                                <th style="text-align:right;padding-left:5px;padding-right:5px;">@item.ChargeAmount</th>
+                            </tr>
+                        }
+                        <tr>
+                            <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>Total Charges:</strong></td>
+                            <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>@totalCharge</strong></td>
+                        </tr>
+                        <tr>
+                            @{
+                                grandTotal = AdjustedAmountTotal + @totalCharge;
+                                <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>Grand Total :</strong></td>
+                                <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>@grandTotal</strong></td>
+                            }
+                        </tr>
+                        <tr>
+                            <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>Dis(BDT) :</strong></td>
+                            <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>@Model.TotalDiscount</strong></td>
+                        </tr>
+                        <tr>
+                            @{
+                                grandTotalWithoutDiscount = grandTotal - @Model.TotalDiscount;
+                                <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>Grand Total :</strong></td>
+                                <td style="text-align:right;padding-left:5px;padding-right:5px;"><strong>@grandTotalWithoutDiscount</strong></td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+                <div>In Word : <strong>@Model.AmountInWord</strong></div>
+            </div>
+        </div>
+        <br />
+        <table class="table" style="width:100%;">
+            <tr>
+                <td width="50%" style="text-align:center;">
+                    <div>
+                        <label><strong>Received From</strong></label><br />
+                        <label><strong>@Model.SupplierName</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>----------------------</strong></label><br />
+                        <label><strong>Signeture</strong></label>
+                    </div>
+                </td>
+                <td width="50%" style="text-align:center;">
+                    <div>
+                        <label><strong>Received By</strong></label><br />
+                        <label><strong>@Model.RequestedBy</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>&nbsp;</strong></label><br />
+                        <label><strong>----------------------</strong></label><br />
+                        <label><strong>Signeture</strong></label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

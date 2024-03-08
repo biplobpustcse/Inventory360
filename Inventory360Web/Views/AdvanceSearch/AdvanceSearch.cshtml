@@ -1,0 +1,525 @@
+﻿@{
+    ViewBag.Title = "Collection Report...";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- page content -->
+<div id="content" ng-controller="advanceSearchController">
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Advance Search</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <form class="form-horizontal form-label-left input_mask">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Serial Number</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input class="form-control" name="serialNumber" type="text" placeholder="Serial Number" ng-model="serialNumber" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <button type="button" class="btn btn-app" ng-click="clickToSearch()"><i class="fa fa-search"></i>Search</button>
+                                        <a target="_self" class="btn btn-app" href="@Url.Action("AdvanceSearch", "AdvanceSearch")"><i class="fa fa-refresh"></i>Clear</a>
+                                        <a target="_self" class="btn btn-app" href="@Url.Action("Index", "Home")"><i class="fa fa-close"></i>Close</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="row">
+                                    @* 0. Stock position*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.stockLists.length>0">
+                                        <label class="control-label">Stock position</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Serial</th>
+                                                        <th>Stock Location</th>
+                                                        <th>Ware House</th>
+                                                        <th>Stock Type</th>
+                                                        <th>Warranty Period</th>
+                                                        <th>Service Warranty Period</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.stockLists">
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.Serial}}</td>
+                                                        <td>{{item.StockLocation}}</td>
+                                                        <td>{{item.WareHouse}}</td>
+                                                        <td>{{item.StockType}}</td>
+                                                        <td>{{item.WarrantyPeriod}}</td>
+                                                        <td>{{item.ServiceWarrantyPeriod}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    @* 1. Purchase History*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.purchaseLists.length>0">
+                                        <label class="control-label">Purchase History</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Purchase Number</th>
+                                                        <th>Date</th>
+                                                        <th>Supplier Name</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Location</th>
+                                                        <th>Ware House</th>
+                                                        <th>Referance Number</th>
+                                                        <th>Entry By</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.purchaseLists">
+                                                        <td>{{item.OrderNo}}</td>
+                                                        <td>{{item.OrderDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.SupplierName}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.LocationName}}</td>
+                                                        <td>{{item.WareHouse}}</td>
+                                                        <td>{{item.ReferenceNo}}</td>
+                                                        <td>{{item.EntryBy}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 2. Purchase Return*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.purchaseReturnLists.length>0">
+                                        <label class="control-label">Purchase Return</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Purchase Return Number</th>
+                                                        <th>Date</th>
+                                                        <th>Supplier Name</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Location</th>
+                                                        <th>Ware House</th>
+                                                        <th>Entry By</th>
+                                                        <th>Purchase number</th>
+                                                        <th>Purchase Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.purchaseReturnLists">
+                                                        <td>{{item.ReturnNo}}</td>
+                                                        <td>{{item.ReturnDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.SupplierName}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.LocationName}}</td>
+                                                        <td>{{item.WareHouse}}</td>
+                                                        <td>{{item.EntryBy}}</td>
+                                                        <td>{{item.PurchaseNumber}}</td>
+                                                        <td>{{item.PurchaseDate | date : 'dd-MMM-yyyy'}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 3. Import In History*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.importInLists.length>0">
+                                        <label class="control-label">Import In History</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Import Number</th>
+                                                        <th>Date</th>
+                                                        <th>Supplier Name</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Location</th>
+                                                        <th>Ware House</th>
+                                                        <th>LC Number</th>
+                                                        <th>LC Date</th>
+                                                        <th>PI Number</th>
+                                                        <th>PI Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.importInLists">
+                                                        <td>{{item.StockInNo}}</td>
+                                                        <td>{{item.StockInDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.SupplierName}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.LocationName}}</td>
+                                                        <td>{{item.WareHouse}}</td>
+                                                        <td>{{item.LCNumber}}</td>
+                                                        <td>{{item.LCDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.PINumber}}</td>
+                                                        <td>{{item.PIDate | date : 'dd-MMM-yyyy'}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 4. Atock Adjustment History*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.stockAdjustmentLists.length>0">
+                                        <label class="control-label">Atock Adjustment History</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Stock Adjustment Number</th>
+                                                        <th>Date</th>
+                                                        <th>Adjustment Type </th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Serial Number</th>
+                                                        <th>Entry By</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.stockAdjustmentLists">
+                                                        <td>{{item.AdjustmentNo}}</td>
+                                                        <td>{{item.AdjustmentDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.AdjustmentType}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.SerialNumber}}</td>
+                                                        <td>{{item.EntryBy}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 5. Sales History*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.salesInvoiceList.length>0">
+                                        <label class="control-label">Sales History</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Invoice Number</th>
+                                                        <th>Date</th>
+                                                        <th>Customer Name</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Location</th>
+                                                        <th>Ware House</th>
+                                                        <th>Payment Promise Date</th>
+                                                        <th>Entry By</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.salesInvoiceList">
+                                                        <td>{{item.InvoiceNo}}</td>
+                                                        <td>{{item.InvoiceDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.CustomerName}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.LocationName}}</td>
+                                                        <td>{{item.WareHouse}}</td>
+                                                        <td></td>
+                                                        <td>{{item.EntryBy}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 6. Sales Return History*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.salesReturnLists.length>0">
+                                        <label class="control-label">Sales Return History</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sales Return Number</th>
+                                                        <th>Date</th>
+                                                        <th>Customer Name</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Location</th>
+                                                        <th>Ware House</th>
+                                                        <th>Entry By</th>
+                                                        <th>Invoice Number</th>
+                                                        <th>Invoice Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.salesReturnLists">
+                                                        <td>{{item.ReturnNo}}</td>
+                                                        <td>{{item.ReturnDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.CustomerName}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.LocationName}}</td>
+                                                        <td>{{item.WareHouse}}</td>
+                                                        <td>{{item.EntryBy}}</td>
+                                                        <td>{{item.InvoiceNumber}}</td>
+                                                        <td>{{item.InvoiceDate | date : 'dd-MMM-yyyy'}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 7. Stock Transfer History (Location Transfer)*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.stockTransferLists.length>0">
+                                        <label class="control-label">Stock Transfer History (Location Transfer)</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Transfer Number</th>
+                                                        <th>Date</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Serial Number</th>
+                                                        <th>From Location</th>
+                                                        <th>Warehouse</th>
+                                                        <th>Transfered By</th>
+                                                        <th>From Stock Type</th>
+                                                        <th>To Location</th>
+                                                        <th>To Stock Type</th>
+                                                        <th>Receive number</th>
+                                                        <th>Received By</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.stockTransferLists">
+                                                        <td>{{item.ChallanNo}}</td>
+                                                        <td>{{item.ChallanDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.SerialNo}}</td>
+                                                        <td>{{item.FromLocationName}}</td>
+                                                        <td>{{item.WareHouse}}</td>
+                                                        <td>{{item.TransferedBy}}</td>
+                                                        <td>{{item.FromStockType}}</td>
+                                                        <td>{{item.ToLocationName}}</td>
+                                                        <td>{{item.ToStockType}}</td>
+                                                        <td>{{item.ReceiveNumber}}</td>
+                                                        <td>{{item.ReceivedBy}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 8. Internal Stock Transfer History*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.internalStockTransferLists.length>0">
+                                        <label class="control-label">Internal Stock Transfer History</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Transfer Number</th>
+                                                        <th>Date</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Serial Number</th>
+                                                        <th>From Location</th>
+                                                        <th>Warehouse</th>
+                                                        <th>Transfered By</th>
+                                                        <th>From Stock Type</th>
+                                                        <th>To Location</th>
+                                                        <th>To Stock Type</th>
+                                                        <th>Receive number</th>
+                                                        <th>Received By</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.internalStockTransferLists">
+                                                        <td>{{item.ChallanNo}}</td>
+                                                        <td>{{item.ChallanDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.SerialNo}}</td>
+                                                        <td>{{item.FromLocationName}}</td>
+                                                        <td>{{item.WareHouse}}</td>
+                                                        <td>{{item.TransferedBy}}</td>
+                                                        <td>{{item.FromStockType}}</td>
+                                                        <td>{{item.ToLocationName}}</td>
+                                                        <td>{{item.ToStockType}}</td>
+                                                        <td>{{item.ReceiveNumber}}</td>
+                                                        <td>{{item.ReceivedBy}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 9. Complain Receive History*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.complainReceiveLists.length>0">
+                                        <label class="control-label">Complain Receive History</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Complain Receive Number</th>
+                                                        <th>Date</th>
+                                                        <th>Customer Name</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Receive Serial</th>
+                                                        <th>Invoice Number</th>
+                                                        <th>Invoice Date</th>
+                                                        <th>Entry By</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.complainReceiveLists">
+                                                        <td>{{item.ReceiveNo}}</td>
+                                                        <td>{{item.ReceiveDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.CustomerName}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.ReceiveSerial}}</td>
+                                                        <td>{{item.InvoiceNumber}}</td>
+                                                        <td>{{item.InvoiceDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.EntryBy}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 10. Replacement Claim to Vendor*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.replacementClaimLists.length>0">
+                                        <label class="control-label">Replacement Claim to Vendor</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Replacement Claim Number</th>
+                                                        <th>Date</th>
+                                                        <th>Supplier Name</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Claim Serial (out)</th>
+                                                        <th>Complain Number</th>
+                                                        <th>Complain Date</th>
+                                                        <th>Entry By</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.replacementClaimLists">
+                                                        <td>{{item.ClaimNo}}</td>
+                                                        <td>{{item.ClaimDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.SupplierName}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.ClaimSerial}}</td>
+                                                        <td>{{item.ComplainNumber}}</td>
+                                                        <td>{{item.ComplainDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.EntryBy}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 11. Receive against Replacement Claim*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.replacementReceiveLists.length>0">
+                                        <label class="control-label">Receive against Replacement Claim</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Receive Number</th>
+                                                        <th>Date</th>
+                                                        <th>Supplier Name</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>In Serial</th>
+                                                        <th>Out Serial</th>
+                                                        <th>Entry By</th>
+                                                        <th>Claim Number</th>
+                                                        <th>Claim Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.replacementReceiveLists">
+                                                        <td>{{item.ReceiveNo}}</td>
+                                                        <td>{{item.ReceiveDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.SupplierName}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.NewSerial}}</td>
+                                                        <td>{{item.PreviousSerial}}</td>
+                                                        <td>{{item.EntryBy}}</td>
+                                                        <td>{{item.ClaimNumber}}</td>
+                                                        <td>{{item.ClaimDate | date : 'dd-MMM-yyyy'}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @* 12. Customer Delivery History*@
+                                    <div class="col-md-12 col-sm-12 col-xs-12" ng-show="allCollectionJsonLists.customerDeliveryLists.length>0">
+                                        <label class="control-label">Customer Delivery History</label>
+                                        <div class="table-responsive" style="max-height:500px">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Customer delivery Number</th>
+                                                        <th>Date</th>
+                                                        <th>Customer Name</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
+                                                        <th>Delivery Serial</th>
+                                                        <th>Entry By</th>
+                                                        <th>Complain Number</th>
+                                                        <th>Complain Date</th>
+                                                        <th>Complain Serial</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in allCollectionJsonLists.customerDeliveryLists">
+                                                        <td>{{item.DeliveryNo}}</td>
+                                                        <td>{{item.DeliveryDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.CustomerName}}</td>
+                                                        <td>{{item.ProductName}}</td>
+                                                        <td>{{item.ProductCode}}</td>
+                                                        <td>{{item.NewSerial}}</td>
+                                                        <td>{{item.EntryBy}}</td>
+                                                        <td>{{item.ComplainNumber}}</td>
+                                                        <td>{{item.ComplainDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.PreviousSerial}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+
+@section scripts{    
+    <script src="~/Scripts/ngServices/advanceSearch/advanceSearchService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngControllers/advanceSearch/advanceSearchController.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+}

@@ -1,0 +1,98 @@
+﻿@using System.Globalization
+@using Inventory360Web.Helpers
+@model Inventory360Web.Models.ReportTaskItemRequisitionFinalization
+
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>IndTransferRequisition</title>
+</head>
+<body>
+    <div>
+        <br />
+        <table style="width:100%; border: 1px solid black;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                    <div class="addcon">@Html.GenerateQrCode(Model.RequisitionNo)</div>
+                </td>
+                <td>
+                    <div class="reportTitle"><strong>Transfer Requisition Finalize Report</strong></div>
+                    <table>
+                        <tr style="font-weight:bold;">
+                            <td>Collection No.&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.RequisitionNo</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;">Date&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.RequisitionDate.ToString("dd-MMM-yyyy HH:mm")</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;">Status&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.Status&nbsp;@( string.IsNullOrEmpty(Model.CancelReason) ? string.Empty : "(" + Model.CancelReason + ")" )</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;">From Location &nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.FromLocation</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;">Destination Location &nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.ToLocation</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;">Stock Type&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.StockType</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;">Requested By &nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.RequestedBy</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table class="table" style="width:100%;">
+            <thead>
+                <tr>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;">Code</th>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;">Product Name</th>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;">Unit Type</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.DetailLists)
+                {
+                    <tr>
+                        <td style="text-align:left;padding-left:5px;padding-right:5px;">@item.ProductCode</td>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            @item.ProductName
+                            <br />
+                            <span style="font-style:italic;">
+                                @item.ProductDimension
+                            </span>
+                        </td>
+                        <td style="text-align:left;padding-left:5px;padding-right:5px;">@item.UnitType</td>
+                        <td style="text-align:right;padding-left:5px;padding-right:5px;">@item.Quantity.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

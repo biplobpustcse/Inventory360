@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "Approve Transfer Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- page content -->
+<div id="content" ng-controller="transferOrderApproveController">
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Approve Transfer Order</h2>
+                            <div style="float:right">
+                                <a target="_self" class="btn btn-xs" href="@Url.Action("Index", "Home")"><i class="fa fa-close"></i> Close</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <form class="form-horizontal form-label-left input_mask">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <input class="form-control" style="width:100%;" type="text" placeholder="Search by Transfer Order No..." maxlength="100" name="searchTransferOrder" ng-model="searchTransferOrder" ng-change="filterTransferOrderNo()" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-7 col-sm-12 col-xs-12">
+                                    <div role="status" aria-live="polite">{{showRecordsInfo}}</div>
+                                </div>
+                                <div class="form-group col-md-5 col-sm-12 col-xs-12" ng-show="showGrid" style="margin-bottom: 0px !important;">
+                                    <div class="dataTables_paginate paging_simple_numbers">
+                                        <ul class="pagination">
+                                            <li class="paginate_button previous" ng-class="pageIndex > 1 ? 'active' : 'disabled'">
+                                                <a href="#" aria-controls="datatable" ng-click="previous($event)"><i class="fa fa-arrow-circle-left"></i> Previous</a>
+                                            </li>
+                                            <li class="paginate_button next" ng-class="pageIndex < unApprovedTransferOrderJsonLists.LastPageNo ? 'active' : 'disabled'">
+                                                <a href="#" aria-controls="datatable" ng-click="next($event)">Next <i class="fa fa-arrow-circle-right"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="row" ng-show="showGrid">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Order No.</th>
+                                                        <th>Order By</th>
+                                                        <th>Transfer From</th>
+                                                        <th>Transfer To</th>
+                                                        <th style="width: 90px;">&nbsp;</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in unApprovedTransferOrderJsonLists.Data">
+                                                        <td>{{item.TransferOrderDate | date : 'dd-MMM-yyyy'}}</td>
+                                                        <td>{{item.TransferOrderNo}}</td>
+                                                        <td>{{item.TransferOrderBy}}</td>
+                                                        <td>{{item.TransferFrom}}</td>
+                                                        <td>{{item.TransferTo}}</td>
+                                                        <td>
+                                                            <div class="pull-right">
+                                                                <button type="button" data-toggle="modal" data-target="#myModal1" ng-click="showTransferOrderDetail(item.TransferOrderId)" class="btn btn-info btn-xs" style="margin-bottom: 0px;margin-right:0px;" title="Detail">
+                                                                    <span class="fa fa-list"></span>
+                                                                </button>
+                                                                <button ng-click="approveTransferOrder(item.TransferOrderId, item.TransferOrderNo)" class="btn btn-warning btn-xs" style="margin-bottom: 0px;margin-right:0px;" title="Approve Transfer Order">
+                                                                    <span class="fa fa-check-circle"></span>
+                                                                </button>
+                                                                <button ng-click="PrintReport(item.TransferOrderId)" class="btn btn-info btn-xs" style="margin-bottom: 0px;" title="Transfer Order Report">
+                                                                    <span class="fa fa-print"></span>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Start -->
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Transfer order No : {{transferOrderDetailJsonData.TransferOrderNo}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal form-label-left input_mask">
+                            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="width:80px"><strong>Date</strong></td>
+                                                    <td style="width:10px">&nbsp;<strong>:</strong>&nbsp;</td>
+                                                    <td>&nbsp;{{transferOrderDetailJsonData.TransferOrderDate | date : 'dd-MMM-yyyy'}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Status</strong></td>
+                                                    <td>&nbsp;<strong>:</strong>&nbsp;</td>
+                                                    <td>&nbsp;{{transferOrderDetailJsonData.Approved == 'N' ? 'Unapproved' : (transferOrderDetailJsonData.Approved == 'A' ? 'Approved' : 'Cancelled')}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                            <thead>
+                                                <tr>
+                                                    <th>Code</th>
+                                                    <th>Product Name</th>
+                                                    <th><span class="pull-right">Quantity</span></th>
+                                                    <th>Unit Type</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in transferOrderDetailJsonData.DetailLists">
+                                                    <td>{{item.ProductCode}}</td>
+                                                    <td>
+                                                        {{item.ProductName}}
+                                                        <br />
+                                                        <span style="font-style:italic;">{{item.ProductDimension}}</span>
+                                                    </td>
+                                                    <td><span class="pull-right">{{item.Quantity.toFixed(2)}}</span></td>
+                                                    <td>{{item.UnitType}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal End -->
+    </div>
+</div>
+<!-- /page content -->
+
+@section scripts{
+    <script src="~/Scripts/ngControllers/approve/transfer/transferOrderApproveController.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/task/transfer/order/unApprovedTransferOrderService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/task/transfer/order/transferOrderWithDetailService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/task/transfer/order/transferOrderApproveService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+}

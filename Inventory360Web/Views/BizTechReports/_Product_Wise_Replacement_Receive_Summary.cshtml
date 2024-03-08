@@ -1,0 +1,93 @@
+﻿@using System.Globalization
+@model Inventory360Web.Models.CommonReplacementReceiveAnalysisReport
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>@Model.ReportName Report</title>
+</head>
+<body>
+    <div style="font-size: 13px;">
+        <br />
+        <table style="width:100%; border: 1px solid black;border-collapse:collapse;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                </td>
+                <td style="width:350px;">
+                    <div class="reportTitle"><strong>@Model.ReportName Report</strong></div>
+                    <table>
+                        <tr>
+                            <td style="padding-left:5px;">@Model.DateRange</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @{
+            var replacementReceiveAnalysisLists = Model.ReplacementReceiveAnalysisLists.Select(s => s.ReceivedProductGroup).Distinct().ToList();
+            foreach (var indReplacementReceiveReceivedProductGroup in replacementReceiveAnalysisLists)
+            {
+                <table style="width:100%; border-collapse: collapse;">
+                    @{
+                        <tr style="font-weight:bold;">
+                            <td colspan="12" style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Group # @indReplacementReceiveReceivedProductGroup</td>
+                        </tr>
+                        var receivedProductBrandLists = Model.ReplacementReceiveAnalysisLists.Where(x => x.ReceivedProductGroup == indReplacementReceiveReceivedProductGroup).Select(s => s.ReceivedProductBrand).Distinct().ToList();
+                        
+                        foreach (var indReceivedProductBrand in receivedProductBrandLists)
+                        {
+                            <tr style="font-weight:bold;">
+                                <td colspan="12" style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Brand # @indReceivedProductBrand</td>
+                            </tr>
+                            var receivedProductCategoryLists = Model.ReplacementReceiveAnalysisLists.Where(x => x.ReceivedProductGroup == indReplacementReceiveReceivedProductGroup && x.ReceivedProductBrand == indReceivedProductBrand).Select(s => s.ReceivedProductCategory).Distinct().ToList();
+
+                            foreach (var indReceivedProductCategory in receivedProductCategoryLists)
+                            {
+                                <tr style="font-weight:bold;">
+                                    <td colspan="12" style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Category # @indReceivedProductCategory</td>
+                                </tr>
+                                <tr style="font-weight:bold; background-color:aqua;">
+                                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Receive Product</td>
+                                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Model</td>
+                                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Replacement Receive  Quantity</td>
+                                </tr>
+                                var dataLists = Model.ReplacementReceiveAnalysisLists.Where(x => x.ReceivedProductGroup == indReplacementReceiveReceivedProductGroup && x.ReceivedProductBrand == indReceivedProductBrand && x.ReceivedProductCategory.Equals(indReceivedProductCategory))
+                                                 .GroupBy(g => new { g.ReceivedProductName, g.ReceivedModel },
+                                                                (key, g) => new
+                                                                {
+                                                                    key.ReceivedProductName,
+                                                                    key.ReceivedModel,
+                                                                    ReplacementReceiveQuantity = g.Count()
+                                                                })
+                                                            .ToList();
+                                foreach (var indData in dataLists)
+                                {
+                                    <tr>
+                                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ReceivedProductName</td>
+                                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ReceivedModel</td>
+                                        <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ReplacementReceiveQuantity</td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    }
+                </table>
+                <br />
+                        }
+                        <span style="font-weight:bold; float: right;">Grand Total # @Model.ReplacementReceiveAnalysisLists.Count().ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</span>
+
+        }
+    </div>
+</body>
+</html>

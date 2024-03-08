@@ -1,0 +1,85 @@
+﻿@using System.Globalization
+@model Inventory360Web.Models.CommonComplainReceiveAnalysisReport
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>Delivery Pending</title>
+</head>
+<body>
+    <div style="font-size: 13px;">
+        <br />
+        <table style="width:100%; border: 1px solid black;border-collapse:collapse;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                </td>
+                <td style="width:350px;">
+                    <div class="reportTitle"><strong>@Model.ReportName Report</strong></div>
+                    <table>
+                        <tr>
+                            <td style="padding-left:5px;">@Model.DateRange</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @{
+            var complainReceiveAnalysisLists = Model.ComplainReceiveAnalysisLists.OrderBy(o => o.ReceiveDate).Where(s => s.DeliveryStatus == "N").Distinct().ToList();
+            string Problems = "";
+            string DeliverydaysTaken = "";
+            <table style="width:100%; border-collapse: collapse;">
+                <tr style="font-weight:bold; background-color:aqua;">
+                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Complain Number</td>
+                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Customer</td>
+                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Product Name</td>
+                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Serial</td>
+                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Problem</td>
+                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Compilener Name</td>
+                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Mobile Number</td>
+                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Received Date</td>
+                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Days Taken</td>
+                    <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Delivered</td>
+                </tr>                
+                @foreach (var indComplainReceive in complainReceiveAnalysisLists)
+                {
+                    Problems = "";
+                    DeliverydaysTaken = "";
+                    if (indComplainReceive.DeliveryDate != DateTime.MinValue)
+                    {
+                        DeliverydaysTaken = ((int)(indComplainReceive.DeliveryDate - indComplainReceive.ReceiveDate).TotalDays).ToString();
+                    }
+                    foreach (var problem in indComplainReceive.ProblemNames)
+                    {
+                        Problems = Problems == "" ? "" + problem.Name : Problems + "," + problem.Name;
+                    }
+                    <tr>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indComplainReceive.ReceiveNo</td>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indComplainReceive.Customer</td>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indComplainReceive.ProductName</td>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indComplainReceive.Serial</td>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@Problems</td>
+                        <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indComplainReceive.ReceivedBy</td>
+                        <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indComplainReceive.ReceivedByContactNo</td>
+                        <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indComplainReceive.ReceiveDate.ToString("dd-MMM-yyyy")</td>
+                        <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indComplainReceive.DeliveryDaysTaken</td>
+                        <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indComplainReceive.DeliveryStatus</td>
+                    </tr>
+                }
+            </table>
+                <br />
+                <span style="font-weight:bold; float: right;">Total  # @complainReceiveAnalysisLists.Count</span>
+        }
+    </div>
+</body>
+</html>

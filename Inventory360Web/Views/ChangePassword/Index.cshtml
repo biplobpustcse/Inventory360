@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Change Password...";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- page content -->
+<div id="content" ng-controller="changePasswordController">
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Change Password</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <form name="frmChangePassword" class="form-horizontal form-label-left input_mask">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Current Password *</label>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <input class="form-control" type="password" placeholder="Current Password..." maxlength="100" required name="currentPassword" ng-model="currentPassword" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">New Password *</label>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <input class="form-control" type="password" placeholder="New Password..." maxlength="100" required name="newPassword" ng-model="newPassword" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Confirm Password *</label>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <input class="form-control" type="password" placeholder="Confirm Password..." maxlength="100" required name="confirmPassword" ng-model="confirmPassword" />
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button type="button" class="btn btn-app" ng-disabled="frmChangePassword.$invalid || newPassword != confirmPassword" ng-click="clickUpdate()"><i class="fa fa-edit"></i>Change</button>
+                                    <button type="button" class="btn btn-app" ng-click="clickClose()"><i class="fa fa-close"></i>Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+
+@section scripts{
+    <script src="~/Scripts/ngControllers/account/changePasswordController.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/securityUserChangePasswordService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+}

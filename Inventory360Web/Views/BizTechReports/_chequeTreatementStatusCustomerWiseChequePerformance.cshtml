@@ -1,0 +1,191 @@
+﻿@using System.Globalization
+@using Inventory360Web.Helpers
+@model Inventory360Web.Models.CommonCustomerOrSupplierWiseChequePerformance
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>Cheque History</title>
+</head>
+<body>
+    <div>
+        <br />
+        @{
+        string CustomerSupplierwiseChequePerformance ="Supplier Wise Cheque Performance";
+        string CustomerOrSupplierName = "Supplier Name";
+        string CustomerOrSupplierCode = "Supplier Code";
+        string CustomerOrSupplierAddress = "Supplier Address";
+        string CollectionStatus = "Payment Status";
+        if (Model.ChequeType != "issuedCheque")
+        {
+        CustomerSupplierwiseChequePerformance ="Customer Wise Cheque Performance";
+        CustomerOrSupplierName = "Customer Name";
+        CustomerOrSupplierCode = "Customer Code";
+        CustomerOrSupplierAddress = "Customer Address";
+        CollectionStatus = "Collection Status";
+        }
+        <table style="width:100%; border: 1px solid black;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                </td>
+                <td>
+                    <div class="reportTitle"><strong>@CustomerSupplierwiseChequePerformance</strong></div>
+                </td>
+            </tr>
+        </table>
+        <br />
+
+        string DateFrom = Model.DateFrom?.ToString("dd.MM.yyyy") ?? "All";
+        string DateTo = Model.DateTo?.ToString("dd.MM.yyyy") ?? "All";
+        string LocationName = "All";
+        if (!(DateFrom == "All" && DateTo == "All"))
+        {
+        if (DateFrom == "All")
+        {
+        DateFrom = "-";
+        }
+        if (DateTo == "All")
+        {
+        DateTo = "-";
+        }
+        }
+        if (!string.IsNullOrEmpty(@Model.LocationName))
+        {
+        LocationName = @Model.LocationName;
+        }
+
+        <table style="width:100%;">
+            <tr>
+                <td style="width:100%;text-align:center"><div><strong>Date From: @DateFrom To: @DateTo </strong></div></td>
+            </tr>
+            <tr>
+                <td style="width:100%;text-align:center"><div><strong>Location:@LocationName</strong></div></td>
+            </tr>
+        </table>
+        int slNo = 0;
+        <table class="table" style="width:100%;">
+            <thead>
+                <tr>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;width:2%;">Sl No</th>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;width:5%;">@CustomerOrSupplierName</th>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;width:5%;">@CustomerOrSupplierCode</th>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;width:5%;">@CustomerOrSupplierAddress</th>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;width:3%;">Contact Number</th>
+                    <th style="text-align:center;padding-left:5px;padding-right:5px;width:20%;">
+                        @CollectionStatus
+                        <table style="width:100%;">
+                            <thead>
+                                <tr style="width:100%;">
+                                    <th style="text-align:left;width:60%;">Number of Cheque</th>
+                                    <th style="text-align:left;width:40%;">Amount</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </th>
+                    <th style="text-align:center;padding-left:5px;padding-right:5px;width:20%;">
+                        Dishonor Status
+                        <table style="width:100%;">
+                            <thead>
+                                <tr style="width:100%;">
+                                    <th style="text-align:left;width:40%;">Number of Cheque</th>
+                                    <th style="text-align:left;width:30%;">Amount</th>
+                                    <th style="text-align:left;width:30%;">Dishonor % (Based on Amount)</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </th>
+                    <th style="text-align:center;padding-left:5px;padding-right:5px;width:20%;">
+                        Balance Adjusted Status
+                        <table style="width:100%;">
+                            <thead>
+                                <tr style="width:100%;">
+                                    <th style="text-align:left;width:40%;">Number of Cheque</th>
+                                    <th style="text-align:left;width:30%;">Amount</th>
+                                    <th style="text-align:left;width:30%;">Balance Adjusted % (Based on Amount)</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </th>
+                    <th style="text-align:center;padding-left:5px;padding-right:5px;width:20%;">
+                        Purely Honored
+                        <table style="width:100%;">
+                            <thead>
+                                <tr style="width:100%;">
+                                    <th style="text-align:left;width:40%;">Number of Cheque</th>
+                                    <th style="text-align:left;width:30%;">Amount</th>
+                                    <th style="text-align:left;width:30%;">Purely Honored % (Based on Amount)</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in @Model.CommonCustomerOrSupplierWiseChequePerformanceDetail)
+                {
+                slNo = slNo + 1;
+                <tr>
+                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;width:2%;">@slNo</td>
+                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;width:5%;">@item.CustomerOrSupplierName</td>
+                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;width:5%;">@item.CustomerOrSupplierCode</td>
+                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;width:5%;">@item.CustomerOrSupplierAddress</td>
+                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;width:3%;">@item.CustomerOrSupplierPhoneNo</td>
+                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;width:20%;">
+                        <table style="width:100%;">
+                            <tbody>
+                                <tr style="width:100%;">
+                                    <td style="text-align:left;vertical-align:top;width:60%;">@item.NoOfCheque</td>
+                                    <td style="text-align:left;vertical-align:top;width:40%;">@item.ChequeAmount</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;width:20%;">
+                        <table style="width:100%;">
+                            <tbody>
+                                <tr style="width:100%;">
+                                    <td style="text-align:left;vertical-align:top;width:40%;">@item.NoOfDisHonerCheque</td>
+                                    <td style="text-align:left;vertical-align:top;width:30%;">@item.DisHonerChequeAmount</td>
+                                    <td style="text-align:left;vertical-align:top;width:30%;">@item.DisHonerChequePercentageAmount</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;width:20%;">
+                        <table style="width:100%;">
+                            <tbody>
+                                <tr style="width:100%;">
+                                    <td style="text-align:left;vertical-align:top;width:40%;">@item.NoOfBalanceAdjustedCheque</td>
+                                    <td style="text-align:left;vertical-align:top;width:30%;">@item.BalanceAdjustedChequeAmount</td>
+                                    <td style="text-align:left;vertical-align:top;width:30%;">@item.BalanceAdjustedChequePercentageAmount</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;width:20%;">
+                        <table style="width:100%;">
+                            <tbody>
+                                <tr style="width:100%;">
+                                    <td style="text-align:left;vertical-align:top;width:40%;">@item.NoOfPurelyHonoredCheque</td>
+                                    <td style="text-align:left;vertical-align:top;width:30%;">@item.PurelyHonoredChequeAmount</td>
+                                    <td style="text-align:left;vertical-align:top;width:30%;">@item.PurelyHonoredChequePercentageAmount</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        }
+    </div>
+</body>
+</html>

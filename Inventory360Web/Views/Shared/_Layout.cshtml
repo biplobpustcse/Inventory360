@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory 360&deg; | @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <base href="/">
+</head>
+<body class="nav-md" ng-app="myApp" ng-cloak>
+    <div class="container body" ng-controller="loggedInfoController">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="@Url.Action("Index", "Home")" class="site_title"><i class="fa fa-support"></i><span> Inventory 360 Degree</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <!-- AdvanceSearch -->
+                                <li>
+                                    <a><i class="fa fa-tasks"></i> Advance Search <span class="firstLevel fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Advance Search", "AdvanceSearch", "AdvanceSearch", new { area = "" }, new { target = "_self", id = "AdvanceSearch" })</li>
+                                    </ul>
+                                </li>
+                                <!-- Setup -->
+                                <li>
+                                    <a><i class="fa fa-tasks"></i> Setup <span class="firstLevel fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Problem Setup", "Index", "ProblemSetup", new { area = "" }, new { target = "_self", id = "Index" })</li>
+                                        <li>@Html.ActionLink("Convertion Ratio Setup", "ConvertionRatio", "ConvertionRatioSetup", new { area = "" }, new { target = "_self", id = "Index" })</li>
+                                    </ul>
+                                </li>
+                                <!-- Task -->
+                                <li>
+                                    <a><i class="fa fa-tasks"></i> Task <span class="firstLevel fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <a>Sales<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Collection", "Collection", "Sales", new { area = "" }, new { target = "_self", id = "Collection" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>RMA<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Complain Receive", "ComplainReceive", "RMA", new { area = "" }, new { target = "_self", id = "RMA" })</li>
+                                                <li>@Html.ActionLink("Replacement Claim To Vendor", "ReplacementClaim", "RMA", new { area = "" }, new { target = "_self", id = "RMA" })</li>
+                                                <li>@Html.ActionLink("Replacement Receive", "ReplacementReceive", "RMA", new { area = "" }, new { target = "_self", id = "RMA" })</li>
+                                                <li>@Html.ActionLink("Customer Delivery", "CustomerDelivery", "RMA", new { area = "" }, new { target = "_self", id = "RMA" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>Transfer<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Requisition Finalize", "ReqFinalize", "TransferRequisition", new { area = "" }, new { target = "_self", id = "TransferRequisition" })</li>
+                                                <li>@Html.ActionLink("Transfer Order", "TransferOrder", "TransferOrder", new { area = "" }, new { target = "_self", id = "TransferOrder" })</li>
+                                                <li>@Html.ActionLink("Transfer Challan", "TransferChallan", "TransferChallan", new { area = "" }, new { target = "_self", id = "TransferChallan" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>Accounts<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("ChequeTreatment", "ChequeTreatment", "Accounts", new { area = "" }, new { target = "_self", id = "ChequeTreatment" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>Conversion<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Conversion Entry", "Convertion", "Convertion", new { area = "" }, new { target = "_self", id = "Convertion" })</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- Approve -->
+                                <li>
+                                    <a><i class="fa fa-check-circle-o"></i> Approve <span class="firstLevel fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <a>Sales<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Collection", "Collection", "Approve", new { area = "" }, new { target = "_self", id = "CollectionApprove" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>Transfer<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Requisition Finalize", "StockTransferRequisition", "Approve", new { area = "" }, new { target = "_self", id = "StockTransferRequisitionApprove" })</li>
+                                                <li>@Html.ActionLink("Transfer Order", "TransferOrder", "Approve", new { area = "" }, new { target = "_self", id = "TransferOrderApprove" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>RMA<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Complain Receive", "ComplainReceive", "Approve", new { area = "" }, new { target = "_self", id = "ComplainReceiveApprove" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>Convertion<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Convertion", "Convertion", "Approve", new { area = "" }, new { target = "_self", id = "ConvertionApprove" })</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- Cancel -->
+                                <li>
+                                    <a><i class="fa fa-close"></i> Cancel <span class="firstLevel fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <a>Sales<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Collection", "Collection", "Cancel", new { area = "" }, new { target = "_self", id = "CollectionCancel" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>Transfer<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Requisition Finalize", "StockTransferRequisition", "Cancel", new { area = "" }, new { target = "_self", id = "StockTransferRequisitionCancel" })</li>
+                                                <li>@Html.ActionLink("Transfer Order", "TransferOrder", "Cancel", new { area = "" }, new { target = "_self", id = "TransferOrderCencel" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>RMA<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Complain Receive", "ComplainReceive", "Cancel", new { area = "" }, new { target = "_self", id = "ComplainReceiveCancel" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>Convertion<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Convertion", "Convertion", "Cancel", new { area = "" }, new { target = "_self", id = "ConvertionCancel" })</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- Reports -->
+                                <li>
+                                    <a><i class="fa fa-file-o"></i> Reports <span class="firstLevel fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <a>Sales<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Collection", "Collection", "Inventory360Reports", new { area = "" }, new { target = "_self", id = "CollectionReport" })</li>
+                                                <li>@Html.ActionLink("Sales Analysis", "SalesAnalysis", "Inventory360Reports", new { area = "" }, new { target = "_self", id = "SalesAnalysisReport" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>RMA<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Complain Receive Analysis Report", "ComplainReceiveAnalysis", "Inventory360Reports", new { area = "" }, new { target = "_self", id = "ComplainReceiveAnalysis" })</li>
+                                                <li>@Html.ActionLink("Replacement Claim Analysis Report", "ReplacementClaimAnalysis", "Inventory360Reports", new { area = "" }, new { target = "_self", id = "ReplacementClaimAnalysis" })</li>
+                                                <li>@Html.ActionLink("Replacement Receive Analysis Report", "ReplacementReceiveAnalysis", "Inventory360Reports", new { area = "" }, new { target = "_self", id = "ReplacementReceiveAnalysis" })</li>
+                                                <li>@Html.ActionLink("Customer Delivery Analysis Report", "CustomerDeliveryAnalysis", "Inventory360Reports", new { area = "" }, new { target = "_self", id = "CustomerDeliveryAnalysis" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>Transfer<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Transfer Requisition", "TransferRequisition", "Inventory360Reports", new { area = "" }, new { target = "_self", id = "TransferRequisitionReport" })</li>
+                                                <li>@Html.ActionLink("Transfer Order", "TransferOrderRpt", "Inventory360Reports", new { area = "" }, new { target = "_self", id = "TransferOrderReport" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>Accounts<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("ChequeTreatmentRpt", "ChequeTreatmentRpt", "Inventory360Reports", new { area = "" }, new { target = "_self", id = "CollectionReport" })</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>Convertion<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li>@Html.ActionLink("Convertion", "Convertion", "Inventory360Reports", new { area = "" }, new { target = "_self", id = "ConvertionReport" })</li>                                        
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- Update Database -->
+                                <li style="border-bottom:1px solid lightgray">
+                                    <a href="/UpdateDatabase"><i class="fa fa-database"></i> Update Database</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <div class="menu_section" style="margin-bottom:0px !important;background:#EDEDED;">
+                            <div style="font-size:15px;padding-left:15px;font-weight:bold;">{{CompanyName}}</div>
+                            <div style="font-size:11px;padding-left:15px;font-weight:bold;text-transform:uppercase">{{LocationName}}</div>
+                        </div>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="~/Content/images/avater.jpg" alt="">{{UserName}}
+                                    <span class="fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    @*<li><a href="javascript:;"><i class="fa fa-info pull-right"></i> Profile</a></li>*@
+                                    <li><a href="@Url.Action("Index", "ChangePassword")"><i class="fa fa-retweet pull-right"></i> Change Password</a></li>
+                                    <li><a href="@Url.Action("Index", "Login")"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <div class="container body-content">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/others")
+    @Scripts.Render("~/bundles/angular")
+    <script src="~/Scripts/myApp.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/ngServices/userService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/userInfoService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+</body>
+</html>

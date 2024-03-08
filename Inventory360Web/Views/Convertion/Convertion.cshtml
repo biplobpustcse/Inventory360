@@ -1,0 +1,509 @@
+﻿@{
+    ViewBag.Title = "Convertion Entry...";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- page content -->
+<div id="content" ng-controller="convertionController">
+    <div class="right_col" role="main">
+        <div class="row">
+            <div class="x_panel">
+                <form name="frmConvertion" class="form-horizontal form-label-left input_mask">
+                    <div class="x_title">
+                        <h2>Conversion Entry</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12"></label>
+                                    <div class="col-md-8 col-sm-8 col-xs-12 checkbox">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" ng-model="commonTaskConvertion.convertionType" ng-true-value="'R'" ng-false-value="'D'" data-ng-change="changeConversionAgainstRatio()"><strong>Conversion Against Ratio</strong></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label class="control-label col-md-4 col-sm-4 col-xs-12"></label>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <label><input type="radio" name="AssambleOrDisassamble" value="A" ng-model="commonTaskConvertion.convertionFor" /><strong>Assamble</strong></label>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <label><input type="radio" name="AssambleOrDisassamble" value="D" ng-model="commonTaskConvertion.convertionFor" /><strong>Disassamble</strong></label>
+                                    </div>
+                                </div>
+                            </div>
+                            @*Conversion Against Ratio*@
+                            <div data-ng-show="commonTaskConvertion.convertionType == 'R'">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Conversion Ratio Title</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12 xdisplay_inputx form-group">
+                                            <select class="form-control" ng-model="commonTaskConvertion.convertionRatioId" ng-change="getConvertionInfo()">
+                                                <option ng-repeat="x in convertionRatioDropDownJsonData" value="{{x.convertionRatioId}}">{{x.ratioTitle}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Conversion Number *</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" name="ratioNo" type="text" placeholder="Conversion Number" ng-model="commonTaskConvertion.convertionNo" ng-disabled="true" disabled="disabled" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Conversion Ratio Number</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12 xdisplay_inputx form-group">
+                                            <select class="form-control" ng-model="commonTaskConvertion.convertionRatioId" ng-change="getConvertionInfo()">
+                                                <option ng-repeat="x in convertionRatioDropDownJsonData" value="{{x.convertionRatioId}}">{{x.ratioNo}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Date *</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12 xdisplay_inputx form-group has-feedback" style="margin-bottom:0px !important;">
+                                            <input class="form-control datepicker" type="text" placeholder="m/d/yyyy" ng-model="commonTaskConvertion.convertionDate" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12">Description of Conversion Ratio</label>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <textarea class="form-control" cols="20" rows="1" placeholder="Description of Conversion Ratio" maxlength="200" name="remarks" ng-model="commonTaskConvertion.description" ng-disabled="true" disabled="disabled"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Remarks</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <textarea class="form-control" cols="20" rows="1" placeholder="Convertion remarks" maxlength="1000" name="remarks" ng-model="commonTaskConvertion.remarks"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Number of Conversion Unit</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" type="text" placeholder="Number of Conversion Unit" ng-model="commonTaskConvertion.numberOfConversionUnit" ng-change="changeNumberOfConversionUnit()" positive-float-numbers-only />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*Conversion Against Ratio End*@
+                            @*Conversion Direct*@
+                            <div data-ng-show="commonTaskConvertion.convertionType == 'D'">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Conversion Number *</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" name="ratioNo" type="text" placeholder="Conversion Ratio No." ng-model="commonTaskConvertion.convertionNo" ng-disabled="true" disabled="disabled" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Date *</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12 xdisplay_inputx form-group has-feedback" style="margin-bottom:0px !important;">
+                                            <input class="form-control datepicker" type="text" placeholder="m/d/yyyy" ng-model="commonTaskConvertion.convertionDate" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Remarks</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <textarea class="form-control" cols="20" rows="1" placeholder="Convertion remarks" maxlength="1000" name="remarks" ng-model="commonTaskConvertion.remarks"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*Conversion Direct End*@
+                        </div>
+                    </div>
+                    @*Start Product Section*@
+                    <div form="fromProductDetail" ng-repeat="entity in convertionProductDetail">
+                        <div class="x_title">
+                            <h2>{{entity.productForDetail}}</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12" data-ng-show="commonTaskConvertion.convertionType =='D'">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Warehouse</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <select class="form-control" ng-model="entity.wareHouseId" ng-change="getWarehouseName(entity)">
+                                                <option ng-repeat="x in entity.warehouseDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Product *</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" type="text" placeholder="Search product by name or code..." ng-model="entity.productName" ng-keyup="getProductName(entity)" />
+                                            <ul class="list-group" style="position: absolute; z-index: 999;">
+                                                <li class="list-group-item" ng-repeat="item in entity.productNameJsonData" ng-click="fillProductTextbox(item,entity)">{{item.Item}}</li>
+                                            </ul>
+                                        </div>
+                                        <!-- Button trigger modal -->
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <div class="pull-right">
+                                                <button data-ng-if="commonTaskConvertion.convertionType == 'D'" class="btn btn-info btn-xs" title="Add Spare Parts" data-toggle="modal" ng-click="setCurrentProductEntity(entity)" data-target="#ProductModal">
+                                                    <span class="fa fa-sign-out"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="entity.productDimensionDropDownJsonData.length > 0">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Dimension</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12 xdisplay_inputx form-group">
+                                                <select class="form-control" ng-model="entity.productDimensionId" ng-change="getDimensionName(entity)">
+                                                    <option ng-repeat="x in entity.productDimensionDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Unit Type *</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <select class="form-control" ng-model="entity.unitTypeId" ng-change="getUnitTypeName(entity)">
+                                                <option ng-repeat="x in entity.unitTypeDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                            </select>
+                                        </div>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Assamble Quantity *</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <input class="form-control" type="text" ng-disabled="entity.serialAvailable == true" placeholder="Assamble Quantity" ng-model="entity.quantity" positive-float-numbers-only />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Value/Unit</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <input class="form-control" type="text" placeholder="Product Value/Unit" ng-model="entity.cost" positive-float-numbers-only />
+                                        </div>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Total Product value</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <input class="form-control" type="text" placeholder="Total Product value" ng-model="entity.totalProductValue" disabled="disabled" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group" ng-show="entity.serialAvailable == false">
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                        </div>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <button type="button" class="btn btn-app" ng-disabled="fromProductDetail.$invalid" ng-click="clickToAdd(entity)"><i class="fa fa-plus"></i>Add Product</button>
+                                            <button type="button" class="btn btn-app" ng-click="clickToReset(entity)"><i class="fa fa-refresh"></i>Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*-----------------*@
+                                <div class="col-md-12 col-sm-12 col-xs-12" ng-show="entity.serialAvailable == true">
+                                    <div class="x_panel">
+                                        <fieldset >
+                                            <div class="form-group">
+                                                <div class="col-md-1 col-sm-1 col-xs-12">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" ng-model="entity.serialRadio" value="N" ng-click="clickSerialRadio(entity)" /> Normal
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-1 col-sm-1 col-xs-12">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" ng-model="entity.serialRadio" value="Q" ng-click="clickSerialRadio(entity)" /> Quantity
+                                                    </label>
+                                                </div>
+                                                <fieldset ng-show="entity.isNormalSerialSelection" class="col-md-6 col-sm-6 col-xs-12">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Search</label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                                        <input class="form-control" style="width:100%;" type="text" placeholder="Search serial..." name="searchRecords" ng-model="entity.searchRecords" ng-keyup="keyUpToSelectSerial($event)" />
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset ng-show="!entity.isNormalSerialSelection" class="col-md-6 col-sm-6 col-xs-12">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Qty. of Serial</label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-12 xdisplay_inputx has-feedback">
+                                                        <input class="form-control" style="width:100%;" type="text" placeholder="Type quantity of serial to select..." name="qtyOfSerial" ng-model="entity.qtyOfSerial" positive-numbers-only ng-keyup="checkedQtyWiseSerial(entity)" />
+                                                    </div>
+                                                </fieldset>
+                                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Total : {{entity.productWiseSerialJsonData.length}}</label>
+                                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Selected : {{entity.totalSerialSelected}}</label>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div class="table-responsive" style="overflow: auto;max-height: 200px;">
+                                                    <table class="table table-hover table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 25px;text-align: center;"><input type="checkbox" ng-model="entity.checkAll" ng-show="entity.searchRecords === undefined || entity.searchRecords === ''" ng-click="clickCheckedAll(entity)" /></th>
+                                                                <th>Serial</th>
+                                                                <th>Additional Serial</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @*<tr ng-repeat="item in filtered = (productWiseSerialJsonData | filter:{
+                                    Serial:searchRecords })">*@
+                                                            <tr ng-repeat="item in entity.productWiseSerialJsonData | filter:{Serial:entity.searchRecords }">
+                                                                <td style="text-align: center;"><input type="checkbox" ng-model="item.IsSelected" ng-click="clickIndChecked(entity)" /></td>
+                                                                <td>{{item.Serial}}</td>
+                                                                <td>{{item.AdditionalSerial}}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-3 col-sm-3 col-xs-12" style="text-align:left">
+                                                <button type="button" class="btn btn-app" ng-disabled="fromProductDetail.$invalid" ng-click="clickToAdd(entity)"><i class="fa fa-plus"></i>Add Product</button>                                                
+                                                <button type="button" class="btn btn-app" ng-click="clickToReset()"><i class="fa fa-refresh"></i>Reset</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*--------------------*@
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered dataTable no-footer" aria-describedby="datatable_info">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Product Name</th>
+                                                            <th>Product Dimention</th>
+                                                            <th>Warehouse</th>
+                                                            <th>Unit Type</th>
+                                                            <th>Quantity</th>
+                                                            <th>Cost/Unit</th>
+                                                            <th>Total Cost</th>
+                                                            <th style="border: 1px dotted black;width:30px;">Edit</th>
+                                                            <th style="border: 1px dotted black;width:30px;">Delete</th>
+                                                        </tr>                                                       
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="item in entity.addedProductLists">
+                                                            <td>{{item.productName}}</td>
+                                                            <td>{{item.dimensionName}}</td>
+                                                            <td>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <select class="col-xs-12 form-control" data-ng-disabled="commonTaskConvertion.convertionType =='D'" style="width:100%" ng-model="item.wareHouseId" ng-change="getWarehouseName(item)">
+                                                                        <option value="0">Select One</option>
+                                                                        <option ng-repeat="x in item.warehouseDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            </td>
+                                                            <td>{{item.unitTypeName}}</td>
+                                                            <td>{{item.quantity}}</td>
+                                                            <td>
+                                                                <input class="form-control" type="text" data-ng-disabled="commonTaskConvertion.convertionType =='D'" placeholder="Cost" ng-model="item.cost" ng-change="changeCost(item)" positive-float-numbers-only />
+                                                            </td>
+                                                            <td>{{item.totalProductValue| number : 2}}</td>
+                                                            <td style="border: 1px dotted black;">
+                                                                <div class="pull-right">
+                                                                    <button class="btn btn-info btn-xs" style="margin-bottom: 0px;" title="Edit" ng-click="clickToEditProductDetail(entity,item)">
+                                                                        <span class="fa fa-edit"></span>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td style="border: 1px dotted black;">
+                                                                <div class="pull-right">
+                                                                    <button class="btn btn-info btn-xs" style="margin-bottom: 0px;" title="Delete" ng-click="clickRemoveItem(entity,item)">
+                                                                        <span class="fa fa-trash-o"></span>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td>Total:</td>
+                                                            <td>{{getUnitCostTotal(entity.addedProductLists)}}</td>
+                                                            <td>{{getTotal(entity.addedProductLists)}}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*End Product Section*@
+                </form>
+                <div class="ln_solid"></div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <button type="button" class="btn btn-app" ng-disabled="isSaved || frmConvertion.$invalid" ng-click="clickSave()"><i class="fa fa-save"></i>{{lblSave}}</button>
+                    <a target="_self" class="btn btn-app" href="@Url.Action("Convertion", "Convertion")"><i class="fa fa-refresh"></i>New</a>
+                    <button type="button" class="btn btn-app" ng-if="isSaved" ng-click="PrintReport(commonTaskConvertion.convertionNo)"><i class="fa fa-print"></i>Preview</button>
+                    <a target="_self" class="btn btn-app" href="@Url.Action("Index", "Home")"><i class="fa fa-close"></i>Close</a>
+                </div>
+            </div>
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Lists</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <input class="form-control" style="width:100%;" type="text" placeholder="Search by Conversion  Number" name="searchConversionNumber" ng-model="searchConvertionNumber" ng-change="filterConvertionNumber()" />
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 6px !important;">
+                            <div class="col-md-7 col-sm-12 col-xs-12">
+                                <div class="dataTables_info" role="status" aria-live="polite">{{showRecordsInfo}}</div>
+                            </div>
+                            <div class="col-md-5 col-sm-12 col-xs-12" ng-show="showGrid">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <ul class="pagination">
+                                        <li class="paginate_button previous" ng-class="pageIndex > 1 ? 'active' : 'disabled'">
+                                            <a href="#" aria-controls="datatable" ng-click="previous($event)"><i class="fa fa-arrow-circle-left"></i> Previous</a>
+                                        </li>
+                                        <li class="paginate_button next" ng-class="pageIndex < allConversionList.LastPageNo ? 'active' : 'disabled'">
+                                            <a href="#" aria-controls="datatable" ng-click="next($event)">Next <i class="fa fa-arrow-circle-right"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="showGrid">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Conversion No</th>
+                                                <th>Remarks</th>
+                                                <th>&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in allConversionList.Data">
+                                                <td>{{item.ConvertionDate | date : 'dd-MMM-yyyy'}}</td>
+                                                <td>{{item.ConvertionNo}}</td>
+                                                <td>{{item.Remarks}}</td>
+                                                <td>
+                                                    <div class="pull-right">
+                                                        <button ng-click="PrintReport(item.ConvertionNo)" class="btn btn-info btn-xs" style="margin-bottom: 0px;" title="Print">
+                                                            <span class="fa fa-print"></span>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Modal Spare product-->
+        <div class="modal fade" id="ProductModal" tabindex="-1" role="dialog" aria-labelledby="ProductModalTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ProductModalTitle">Advance Search</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div name="frmComplainReceiveSpareparts" class="form-horizontal form-label-left input_mask">
+                            <div class="row">
+                                <div class="x_content">
+                                    <div class="col-md-10 col-sm-10 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Group</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="productGroupId" ng-change="getSubGroupAndCategoryForDropdown()">
+                                                    <option ng-repeat="x in productGroupDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Sub-Group</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="productSubGroupId" ng-change="getProductModelForDropdown()">
+                                                    <option ng-repeat="x in productSubGroupDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Category</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="productCategoryId" ng-change="getProductModelForDropdown()">
+                                                    <option ng-repeat="x in productCategoryDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="brandId" ng-change="getProductModelForDropdown()">
+                                                    <option ng-repeat="x in brandDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Model</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select class="form-control" ng-model="modelId">
+                                                    <option ng-repeat="x in modelDropDownJsonData" value="{{x.Value}}">{{x.Item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Product</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input class="form-control" type="text" placeholder="Search product by name or code..." ng-model="productName" ng-keyup="getModalProductName()" />
+                                                <ul class="list-group" style="position: absolute; z-index: 999;">
+                                                    <li class="list-group-item" ng-repeat="item in modalProductNameJsonData" ng-click="fillModalProductTextbox(item)">{{item.Item}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="x_title">
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button type="button" class="btn btn-secondary" ng-click="closeModal()" data-dismiss="modal">Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal Spare product-->
+    </div>
+</div>
+<!-- /page content -->
+
+@section scripts{
+    <script src="~/Scripts/ngControllers/task/convertion/convertionController.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/task/convertion/convertionService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productGroupCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productSubGroupCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productCategoryCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productModelCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productBrandCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/locationCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/ngServices/common/productWiseSerialCommonService.js?reload=@DateTime.Now.Date.ToShortDateString()"></script>
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script>
+        $('input.datepicker').datepicker({
+            format: 'm/d/yyyy'
+        });
+    </script>
+}

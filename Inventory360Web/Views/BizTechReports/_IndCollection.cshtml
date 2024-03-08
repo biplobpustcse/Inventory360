@@ -1,0 +1,147 @@
+﻿@using System.Globalization
+@using Inventory360Web.Helpers
+@model Inventory360Web.Models.CommonTaskCollection
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>IndCollection</title>
+</head>
+<body>
+    <div>
+        <br />
+        <table style="width:100%; border: 1px solid black;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                    <div class="addcon">@Html.GenerateQrCode(Model.CollectionNo)</div>
+                </td>
+                <td>
+                    <div class="reportTitle"><strong>Collection Report</strong></div>
+                    <table>
+                        <tr style="font-weight:bold;">
+                            <td>Collection No.&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.CollectionNo</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;">Date&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.CollectionDate.ToString("dd-MMM-yyyy HH:mm")</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;">Status&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.Status&nbsp;@( string.IsNullOrEmpty(Model.CancelReason) ? string.Empty : "(" + Model.CancelReason + ")" )</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;">MR No.&nbsp;</td>
+                            <td>:</td>
+                            <td style="padding-left:5px;">@Model.MRNo</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table style="width:100%; border: 1px solid black;">
+            <tr>
+                <td colspan="6">
+                    <div class="reportTitle"><strong>Customer/Buyer Info</strong></div>
+                </td>
+            </tr>
+            <tr style="vertical-align:top;">
+                <td style="font-weight:bold;">Code&nbsp;</td>
+                <td>:</td>
+                <td style="padding-left:5px;">@Model.CustomerCode</td>
+                <td style="font-weight:bold;">Name&nbsp;</td>
+                <td>:</td>
+                <td style="padding-left:5px;">@Model.CustomerName</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">Cont.&nbsp;</td>
+                <td>:</td>
+                <td style="padding-left:5px;">@Model.CustomerPhone</td>
+                <td style="font-weight:bold;">Address&nbsp;</td>
+                <td>:</td>
+                <td style="padding-left:5px;">@Model.CustomerAddress</td>
+            </tr>
+        </table>
+        <br />
+        <table class="table" style="width:100%;">
+            <thead>
+                <tr>
+                    <th style="text-align:left;padding-left:5px;padding-right:5px;">Collection Mode</th>
+                    <th style="text-align:right;padding-left:5px;padding-right:5px;">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CollectionDetailLists)
+                {
+                    <tr>
+                        <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">
+                            @item.PaymentMode
+                            @if (item.ChequeInfo.Count > 0)
+                            {
+                                <hr />
+                                <table style="width:100%;border-collapse:collapse;margin-top:5px;margin-bottom:5px">
+                                    <thead>
+                                        <tr>
+                                            <td style="text-align:left;padding-left:5px;padding-right:5px;">Bank Name</td>
+                                            <td style="text-align:left;padding-left:5px;padding-right:5px;">@item.PaymentMode No.</td>
+                                            <td style="text-align:left;padding-left:5px;padding-right:5px;">Date</td>
+                                            <td style="text-align:right;padding-left:5px;padding-right:5px;">Amount</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var chequeInfo in item.ChequeInfo)
+                                        {
+                                            <tr>
+                                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@chequeInfo.BankName</td>
+                                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@chequeInfo.ChequeNo</td>
+                                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;">@chequeInfo.ChequeDate.ToString("dd-MMM-yyyy")</td>
+                                                <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">@chequeInfo.ChequeAmount.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </td>
+                        <td style="text-align:right;vertical-align:top;padding-left:5px;padding-right:5px;">@item.Amount.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                    </tr>
+                }
+                <tr>
+                    <td><strong>&nbsp;Total (@Model.CurrencyType) :</strong></td>
+                    <td style="text-align:right;font-weight:bold;padding-left:5px;padding-right:5px;">@Model.CollectedAmount.ToString("N", CultureInfo.CreateSpecificCulture(Model.CurrencyCultureInfo))</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div>Remarks : @Model.Remarks</div>
+        <br />
+        <div>In Word : <strong>@Model.AmountInWord</strong></div>
+        <br />
+        <br />
+        <table class="table" style="width:100%;">
+            <tr style="height:75px;">
+                <td style="text-align:center; vertical-align:bottom; width:33.33%;">&nbsp;@Model.CollectedBy</td>
+                <td style="text-align:center; vertical-align:bottom; width:33.33%;">&nbsp;@Model.EntryByName</td>
+                <td style="width:33.33%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">Received By</td>
+                <td style="text-align:center;">Prepared By</td>
+                <td style="text-align:center;">Customer</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

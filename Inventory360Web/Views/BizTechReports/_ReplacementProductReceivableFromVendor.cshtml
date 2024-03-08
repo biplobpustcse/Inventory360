@@ -1,0 +1,86 @@
+﻿@using System.Globalization
+@model Inventory360Web.Models.CommonReplacementClaimAnalysisReport
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Inventory360Report.css" rel="stylesheet" />
+    <title>@Model.ReportName Report</title>
+</head>
+<body>
+    <div style="font-size: 13px;">
+        <br />
+        <table style="width:100%; border: 1px solid black;border-collapse:collapse;">
+            <tr style="vertical-align:top;">
+                <td style="border-right: 1px solid black;">
+                    <div class="companyHeader"><strong>@Model.CompanyName</strong></div>
+                    <div class="addcon">@Model.CompanyAddress</div>
+                    <div class="addcon">@Model.CompanyContact</div>
+                </td>
+                <td style="width:350px;">
+                    <div class="reportTitle"><strong>@Model.ReportName Report</strong></div>
+                    <table>
+                        <tr>
+                            <td style="padding-left:5px;">@Model.DateRange</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @{
+            string Problems = "";
+            var supplierLists = Model.ReplacementClaimAnalysisLists.Where(x=>x.DeliveryStatus == "N").OrderBy(x => x.Supplier).Select(s => s.Supplier).Distinct().ToList();
+            foreach (var indSupplier in supplierLists)
+            {
+                <table style="width:100%; border-collapse: collapse;">
+                    @{
+                        <tr style="font-weight:bold;">
+                            <td colspan="9" style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Supplier # @indSupplier</td>
+                        </tr>
+                        <tr style="font-weight:bold; background-color:aqua;">
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Replacement Claim Number</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Product Name</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Serial</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Problem</td>                                                                                    
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Receive Date</td>
+                            <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">Days Taken</td>
+                        </tr>
+                        var dataLists = Model.ReplacementClaimAnalysisLists.Where(x => x.Supplier.Equals(indSupplier))
+                                                    .OrderBy(o => o.ReplacementReceiveNumber)
+                                                    .ToList();
+                        foreach (var indData in dataLists)
+                        {
+                            Problems = "";
+                            foreach (var problem in indData.ProblemNames)
+                            {
+                                Problems = Problems == "" ? "" + problem.Name : Problems + "," + problem.Name;
+                            }
+                            <tr>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ClaimNo</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.ProductName</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@indData.Serial</td>
+                                <td style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@Problems</td>                                                                                                
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@if (@indData.ReplacementReceiveDate != DateTime.MinValue){@indData.ReplacementReceiveDate.ToString("dd-MMM-yyyy")}</td>
+                                <td style="text-align:center;vertical-align:top;padding-left:5px;padding-right:5px;border:1px solid black;">@if (@indData.ReplacementReceiveDaysTaken != 0){ @indData.ReplacementReceiveDaysTaken}</td>
+                    </tr>
+                        }
+                        <tr style="font-weight:bold;">
+                            <td colspan="3" style="text-align:left;vertical-align:top;padding-left:5px;padding-right:5px;border:0px;"><span style="font-weight:bold; float: right;">Total # @dataLists.Count</span></td>
+                        </tr>
+                    }
+                </table>
+                <br />
+               }
+            <br />
+                <span style="font-weight:bold; float: right;">Grand Total  # @Model.ReplacementClaimAnalysisLists.Count</span>
+                }
+</div>
+</body>
+</html>
